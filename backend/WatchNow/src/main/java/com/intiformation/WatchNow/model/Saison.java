@@ -1,27 +1,21 @@
 package com.intiformation.WatchNow.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-import java.util.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-/**
- * 
- */
+@Entity
+@Data
+@AllArgsConstructor @NoArgsConstructor
 public class Saison {
-
-    /**
-     * Default constructor
-     */
-    public Saison() {
-    }
-
-    /**
-     * 
-     */
-    private int id;
-
-    /**
-     * 
-     */
-    private int numero;
+	 @Id
+	 @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int _id;
+    private int _numero;
 
 }
