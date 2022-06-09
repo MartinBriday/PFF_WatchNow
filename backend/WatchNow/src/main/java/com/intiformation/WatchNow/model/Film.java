@@ -8,9 +8,9 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
-@Entity
-@Table
-@Data
+//@Entity
+//@Table
+//@Data
 public class Film extends Oeuvre {
 
     public Film() {

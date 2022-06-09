@@ -11,16 +11,16 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
-@Entity
-@Table
-@Data
+//@Entity
+//@Table
+//@Data
 public class Episode {
 
     public Episode() {
     }
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int _id;
     private double _duree;
     private String _titre;
