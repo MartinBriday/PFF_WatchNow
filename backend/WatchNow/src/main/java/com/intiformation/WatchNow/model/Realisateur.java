@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @Table
 @Data
 @PrimaryKeyJoinColumn(name = "_idPersonne")
+@NoArgsConstructor
 public class Realisateur extends Personne {
 
 }
