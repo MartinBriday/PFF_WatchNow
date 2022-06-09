@@ -19,7 +19,7 @@ public class Main {
 //		HttpResponse<String> response;
 
 		
-		String getRequestURL = "https://online-movie-database.p.rapidapi.com/auto-complete?q=" + "game&of&th";
+		String getRequestURL = "https://online-movie-database.p.rapidapi.com/auto-complete?q=" + "game";
         MoviesResultObject response = Unirest.get(getRequestURL)
 		    .header("X-RapidAPI-Host", "online-movie-database.p.rapidapi.com")
 		    .header("X-RapidAPI-Key", "e09070b4b4msh250a66c95cbf5b5p1bfc62jsna373a4d2b8c1")
@@ -36,7 +36,7 @@ public class Main {
 //		for (String string : response.body().) {
 //			
 //		}
-		System.out.println(response.getMovieMatches().get(1).getMovieLabel());
+		System.out.println(response.getMovieMatches().get(2).getMovieLabel());
 
 	}
 
