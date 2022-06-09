@@ -1,6 +1,6 @@
 package com.intiformation.WatchNow;
 
-import java.io.IOException;
+
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -19,14 +19,12 @@ public class Main {
 		try {
 			response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
 			System.out.println(response.body());
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		
 		}
-		for (String string : args) {
-			
-		}
-
+		
 	}
 
 }
