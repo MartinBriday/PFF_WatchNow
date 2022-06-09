@@ -6,20 +6,34 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
+@Table
 @Data
 @AllArgsConstructor @NoArgsConstructor
-public class Personne {
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class Personne {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	protected int _id;
+	protected int _idPersonne;
     protected String _nom;
     protected String _prenom;
     protected Date _dateNaissance;
+    
+    @ManyToMany
+    @JoinTable(name = "Personne_Nationalite",
+    		joinColumns = @JoinColumn(name = "_idPersonne"),
+    		inverseJoinColumns = @JoinColumn(name = "_idNationalite"))
+    protected List<Nationalite> _listeNationalite;
 
 }
