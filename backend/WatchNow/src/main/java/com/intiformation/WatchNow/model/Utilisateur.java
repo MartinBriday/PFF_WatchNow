@@ -1,22 +1,15 @@
 package com.intiformation.WatchNow.model;
 
+import javax.persistence.Entity;
 
-import java.util.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-/**
- * 
- */
+@Entity
+@Data
+@AllArgsConstructor @NoArgsConstructor
 public class Utilisateur extends Personne {
-
-    /**
-     * Default constructor
-     */
-    public Utilisateur() {
-    }
-
-    /**
-     * 
-     */
-    private String email;
+    private String _email;
 
 }

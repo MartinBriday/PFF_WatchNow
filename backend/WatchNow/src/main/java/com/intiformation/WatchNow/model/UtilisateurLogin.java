@@ -1,27 +1,16 @@
 package com.intiformation.WatchNow.model;
 
+import javax.persistence.Entity;
 
-import java.util.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-/**
- * 
- */
-public class UtilisateurLogin {
-
-    /**
-     * Default constructor
-     */
-    public UtilisateurLogin() {
-    }
-
-    /**
-     * 
-     */
-    private String login;
-
-    /**
-     * 
-     */
-    private String password;
+@Entity
+@Data
+@AllArgsConstructor @NoArgsConstructor
+public class UtilisateurLogin extends Personne{
+    private String _login;
+    private String _password;
 
 }
