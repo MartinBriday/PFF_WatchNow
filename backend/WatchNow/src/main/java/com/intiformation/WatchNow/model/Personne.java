@@ -8,6 +8,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -26,5 +29,11 @@ public abstract class Personne {
     protected String _nom;
     protected String _prenom;
     protected Date _dateNaissance;
+    
+    @ManyToMany
+    @JoinTable(name = "Personne_Nationalite",
+    		joinColumns = @JoinColumn(name = "_idPersonne"),
+    		inverseJoinColumns = @JoinColumn(name = "_idNationalite"))
+    protected List<Nationalite> _listeNationalite;
 
 }
