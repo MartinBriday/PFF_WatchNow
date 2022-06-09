@@ -23,7 +23,9 @@ public class Main {
 			e.printStackTrace();
 		
 		}
-		
+		for (String string : args) {
+			
+		}
 
 	}
 
