@@ -3,20 +3,19 @@ package com.intiformation.WatchNow.model;
 
 import java.util.*;
 
-/**
- * 
- */
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Entity
+@Table
+@Data
 public class Acteur extends Personne {
 
-    /**
-     * Default constructor
-     */
     public Acteur() {
     }
 
-    /**
-     * 
-     */
-    private String nomNaissance;
+    private String _nomNaissance;
 
 }
