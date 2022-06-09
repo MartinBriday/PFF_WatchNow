@@ -18,7 +18,14 @@ public class Main {
 //				.header("X-RapidAPI-Host", "online-movie-database.p.rapidapi.com")
 //				.method("GET", HttpRequest.BodyPublishers.noBody())
 //				.build();
-//		HttpResponse<String> response;
+//		HttpResponse<String> response_http;
+//		try {
+//			response_http = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+//			System.out.println(response_http.body());
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		
+//		}
 		
 		
 		String getRequestURL = "https://online-movie-database.p.rapidapi.com/auto-complete?q=" + "game&of&th";
@@ -28,17 +35,7 @@ public class Main {
 		    .asObject(MoviesResultObject.class)
             .getBody();
         System.out.println(response);
-//		try {
-//			response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-//			System.out.println(response.body());
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		
-//		}
-//		for (String string : response.body().) {
-//			
-//		}
-		System.out.println(response.getMovieMatches().get(1).getMovieLabel());
+		System.out.println(response.getMovieMatches().get(1).getId());
 	}
 
 }
@@ -66,10 +63,15 @@ class MovieMatches {
     private MoviePoster i = new MoviePoster("https://drukasia.com/images/stripes/umaparo.jpg");
 
     //and these are other instance variables of interest that a single match 'may' have
+    private String id = "404"; //movie id
     private String l = "Not Available"; //movie label (name) on IMDb servers
     private Integer rank = 0000; //movie rank on IMDb
     private String s = "Not Available"; //movie starrings
     private Integer y = 0000; //year the movie will be released
+    
+    public String getId() {
+    	return id;
+    }
 
     public MoviePoster getMoviePoster() {
         return i;
