@@ -6,15 +6,15 @@ import java.util.*;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table
 @Data
+@NoArgsConstructor @AllArgsConstructor
 public class Film extends Oeuvre {
-
-    public Film() {
-    }
 
     private double _duree;
     private Date _dateSortie;
