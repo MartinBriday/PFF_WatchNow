@@ -3,50 +3,45 @@ package com.intiformation.WatchNow.model;
 
 import java.util.*;
 
-/**
- * 
- */
 public class Oeuvre {
 
-    /**
-     * Default constructor
-     */
+    private String id;
+    private String l;
+    private Integer rank;
+    private Integer y;
+
     public Oeuvre() {
     }
 
-    /**
-     * 
-     */
-    private int id;
-
-    /**
-     * 
-     */
-    private String titre;
-
-    /**
-     * 
-     */
-    private String auteur;
-
-    /**
-     * 
-     */
-    private String categorie;
-
-    /**
-     * 
-     */
-    private double note;
-
-    /**
-     * 
-     */
-    private String synopsis;
-
-    /**
-     * 
-     */
-    private String trailer;
-
+    public String getId() {
+    	return id;
+    }
+    
+    public void setId(String id) {
+    	this.id = id;
+    }
+    
+    public String getTitre() {
+        return l;
+    }
+    
+    public void setTitre(String titre) {
+    	this.l = titre;
+    }
+    
+    public Integer getRank() {
+        return rank;
+    }
+    
+    public void setRank(Integer rank) {
+    	this.rank = rank;
+    }
+    
+    public Integer getDateSortie() {
+        return y;
+    }
+    
+    public void setDateSortie(Integer annee) {
+    	this.y = annee;
+    }
 }
