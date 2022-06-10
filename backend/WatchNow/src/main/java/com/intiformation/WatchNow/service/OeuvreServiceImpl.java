@@ -2,7 +2,7 @@ package com.intiformation.WatchNow.service;
 
 import java.util.List;
 
-import com.intiformation.WatchNow.model.OeuvreObject;
+import com.intiformation.WatchNow.model.Oeuvre;
 import com.intiformation.WatchNow.model.OeuvreResultObject;
 
 import org.springframework.stereotype.Service;
@@ -12,17 +12,36 @@ import kong.unirest.Unirest;
 @Service
 public class OeuvreServiceImpl implements OeuvreService {
 	
-	private static final String requestURL = "https://online-movie-database.p.rapidapi.com/";
-	private OeuvreResultObject resultRequest;
+	private static final String requestURL = "https://streaming-availability.p.rapidapi.com/";
+	
 
+//	@Override
+//	public List<Oeuvre> getByTitre(String titre) {
+//		resultRequest = Unirest.get(requestURL + "search/basic?country=us&service=netflix&type=series&keyword=" + titre)
+//		    .header("X-RapidAPI-Host", "streaming-availability.p.rapidapi.com")
+//		    .header("X-RapidAPI-Key", "f69fe30c89msh67c47b9daafa953p14b7cdjsn133e63e7f94c")
+//		    .asObject(OeuvreResultObject.class)
+//            .getBody();
+//		return resultRequest.getListOeuvre();
+//	}
+	
 	@Override
-	public List<OeuvreObject> getByTitre(String titre) {
-		resultRequest = Unirest.get(requestURL + "auto-complete?q=" + titre)
-		    .header("X-RapidAPI-Host", "online-movie-database.p.rapidapi.com")
-		    .header("X-RapidAPI-Key", "e09070b4b4msh250a66c95cbf5b5p1bfc62jsna373a4d2b8c1")
-		    .asObject(OeuvreResultObject.class)
+	public Oeuvre getById(String id) {
+		Oeuvre resultRequest;
+		resultRequest = Unirest.get(requestURL + "get/basic?country=us&output_language=en&imdb_id=" + id)
+		    .header("X-RapidAPI-Host", "streaming-availability.p.rapidapi.com")
+		    .header("X-RapidAPI-Key", "f69fe30c89msh67c47b9daafa953p14b7cdjsn133e63e7f94c")
+		    .asObject(Oeuvre.class)
             .getBody();
-		return resultRequest.getListOeuvre();
+		return resultRequest;
 	}
 
+
+	@Override
+	public List<Oeuvre> getByTitre(String titre) {
+		
+		return null;
+	}
+
+	
 }

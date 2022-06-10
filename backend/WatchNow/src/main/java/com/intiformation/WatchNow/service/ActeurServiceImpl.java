@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.intiformation.WatchNow.model.Acteur;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,7 +14,7 @@ public class ActeurServiceImpl implements ActeurService
 	@Override
 	public List<Acteur> get()
 	{
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 

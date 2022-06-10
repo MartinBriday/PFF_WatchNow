@@ -4622,6 +4622,23 @@
 									"subViews": [
 										{
 											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGBTMyzHwN60Tw=",
+											"_parent": {
+												"$ref": "AAAAAAGBR3nLfXTBvSE="
+											},
+											"model": {
+												"$ref": "AAAAAAGBTMyzDANoafQ="
+											},
+											"font": "Arial;13;0",
+											"left": 1013,
+											"top": 406,
+											"width": 101.14990234375,
+											"height": 13,
+											"text": "-id: int",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
 											"_id": "AAAAAAGBR3pazng1vF4=",
 											"_parent": {
 												"$ref": "AAAAAAGBR3nLfXTBvSE="
@@ -4630,8 +4647,13 @@
 												"$ref": "AAAAAAGBR3pawHggh8c="
 											},
 											"font": "Arial;13;0",
+<<<<<<< HEAD
 											"left": 1173,
 											"top": 406,
+=======
+											"left": 1013,
+											"top": 421,
+>>>>>>> branch 'current' of https://github.com/MartinBriday/PFF_WatchNow.git
 											"width": 101.14990234375,
 											"height": 13,
 											"text": "-login: String",
@@ -4647,8 +4669,13 @@
 												"$ref": "AAAAAAGBR3p2H3jtw3E="
 											},
 											"font": "Arial;13;0",
+<<<<<<< HEAD
 											"left": 1173,
 											"top": 421,
+=======
+											"left": 1013,
+											"top": 436,
+>>>>>>> branch 'current' of https://github.com/MartinBriday/PFF_WatchNow.git
 											"width": 101.14990234375,
 											"height": 13,
 											"text": "-password: String",
@@ -4659,7 +4686,7 @@
 									"left": 1168,
 									"top": 401,
 									"width": 111.14990234375,
-									"height": 38
+									"height": 53
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -4671,8 +4698,13 @@
 										"$ref": "AAAAAAGBR3nLfHS51To="
 									},
 									"font": "Arial;13;0",
+<<<<<<< HEAD
 									"left": 1168,
 									"top": 439,
+=======
+									"left": 1008,
+									"top": 454,
+>>>>>>> branch 'current' of https://github.com/MartinBriday/PFF_WatchNow.git
 									"width": 111.14990234375,
 									"height": 10
 								},
@@ -4714,7 +4746,7 @@
 							"left": 1168,
 							"top": 376,
 							"width": 111.14990234375,
-							"height": 73,
+							"height": 88,
 							"nameCompartment": {
 								"$ref": "AAAAAAGBR3nLfXS8Oxg="
 							},
@@ -4752,8 +4784,13 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
+<<<<<<< HEAD
 									"left": 1123,
 									"top": 391,
+=======
+									"left": 963,
+									"top": 394,
+>>>>>>> branch 'current' of https://github.com/MartinBriday/PFF_WatchNow.git
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 15,
@@ -4773,8 +4810,13 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
+<<<<<<< HEAD
 									"left": 1123,
 									"top": 376,
+=======
+									"left": 964,
+									"top": 379,
+>>>>>>> branch 'current' of https://github.com/MartinBriday/PFF_WatchNow.git
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 30,
@@ -4794,8 +4836,13 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
+<<<<<<< HEAD
 									"left": 1123,
 									"top": 421,
+=======
+									"left": 962,
+									"top": 423,
+>>>>>>> branch 'current' of https://github.com/MartinBriday/PFF_WatchNow.git
 									"height": 13,
 									"alpha": -1.5707963267948966,
 									"distance": 15,
@@ -4815,8 +4862,13 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
+<<<<<<< HEAD
 									"left": 1104,
 									"top": 391,
+=======
+									"left": 945,
+									"top": 393,
+>>>>>>> branch 'current' of https://github.com/MartinBriday/PFF_WatchNow.git
 									"height": 13,
 									"alpha": 0.5235987755982988,
 									"distance": 30,
@@ -4836,8 +4888,13 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
+<<<<<<< HEAD
 									"left": 1107,
 									"top": 377,
+=======
+									"left": 948,
+									"top": 380,
+>>>>>>> branch 'current' of https://github.com/MartinBriday/PFF_WatchNow.git
 									"height": 13,
 									"alpha": 0.7853981633974483,
 									"distance": 40,
@@ -4856,8 +4913,13 @@
 										"$ref": "AAAAAAGBR3qx3X+mMKo="
 									},
 									"font": "Arial;13;0",
+<<<<<<< HEAD
 									"left": 1097,
 									"top": 418,
+=======
+									"left": 937,
+									"top": 421,
+>>>>>>> branch 'current' of https://github.com/MartinBriday/PFF_WatchNow.git
 									"width": 7.22998046875,
 									"height": 13,
 									"alpha": -0.5235987755982988,
@@ -4879,8 +4941,13 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
+<<<<<<< HEAD
 									"left": 1141,
 									"top": 391,
+=======
+									"left": 981,
+									"top": 395,
+>>>>>>> branch 'current' of https://github.com/MartinBriday/PFF_WatchNow.git
 									"height": 13,
 									"alpha": -0.5235987755982988,
 									"distance": 30,
@@ -4899,8 +4966,13 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
+<<<<<<< HEAD
 									"left": 1138,
 									"top": 377,
+=======
+									"left": 979,
+									"top": 381,
+>>>>>>> branch 'current' of https://github.com/MartinBriday/PFF_WatchNow.git
 									"height": 13,
 									"alpha": -0.7853981633974483,
 									"distance": 40,
@@ -4918,8 +4990,13 @@
 										"$ref": "AAAAAAGBR3qx3X+npgU="
 									},
 									"font": "Arial;13;0",
+<<<<<<< HEAD
 									"left": 1142,
 									"top": 418,
+=======
+									"left": 981,
+									"top": 422,
+>>>>>>> branch 'current' of https://github.com/MartinBriday/PFF_WatchNow.git
 									"width": 7.22998046875,
 									"height": 13,
 									"alpha": 0.5235987755982988,
@@ -4968,7 +5045,11 @@
 								"$ref": "AAAAAAGBQ7z6YTudC7E="
 							},
 							"lineStyle": 1,
+<<<<<<< HEAD
 							"points": "1079:412;1167:412",
+=======
+							"points": "919:414;1007:417",
+>>>>>>> branch 'current' of https://github.com/MartinBriday/PFF_WatchNow.git
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGBR3qx3n+qai4="
@@ -9786,6 +9867,16 @@
 					},
 					"name": "UtilisateurLogin",
 					"attributes": [
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGBTMyzDANoafQ=",
+							"_parent": {
+								"$ref": "AAAAAAGBR3nLfHS51To="
+							},
+							"name": "id",
+							"visibility": "private",
+							"type": "int"
+						},
 						{
 							"_type": "UMLAttribute",
 							"_id": "AAAAAAGBR3pawHggh8c=",

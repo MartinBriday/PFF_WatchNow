@@ -27,9 +27,9 @@ public class RealisateurServiceImpl implements RealisateurService
 	}
 
 	@Override
-	public void save(Realisateur r)
+	public Realisateur save(Realisateur r)
 	{
-		realisateurRepository.save(r);
+		return realisateurRepository.save(r);
 	}
 
 	@Override

@@ -8,7 +8,7 @@ public interface RealisateurService
 {
 	public List<Realisateur> get();
     public Realisateur get(int id);
-    public void save(Realisateur r);
+    public Realisateur save(Realisateur r);
     public void delete(int id);
     public void update(Realisateur r);
 }
