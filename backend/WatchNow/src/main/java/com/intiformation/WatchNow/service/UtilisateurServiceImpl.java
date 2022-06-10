@@ -29,10 +29,10 @@ public class UtilisateurServiceImpl implements UtilisateurService
 	}
 
 	@Override
-	public void save(Utilisateur u)
+	public Utilisateur save(Utilisateur u)
 	{
 		
-		utilisateurRepository.save(u);
+		return utilisateurRepository.save(u);
 	}
 
 	@Override
