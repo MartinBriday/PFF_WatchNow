@@ -2,9 +2,11 @@ package com.intiformation.WatchNow.service;
 
 import java.util.List;
 
-import com.intiformation.WatchNow.model.OeuvreObject;
+import com.intiformation.WatchNow.model.Oeuvre;
 
 public interface OeuvreService {
 
-	List<OeuvreObject> getByTitre(String titre);
+	List<Oeuvre> getByTitre(String titre);
+	Oeuvre getById(String id);
+
 }
