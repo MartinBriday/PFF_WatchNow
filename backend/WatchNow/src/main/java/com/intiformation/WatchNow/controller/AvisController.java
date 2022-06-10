@@ -20,8 +20,8 @@ public class AvisController {
 	@Autowired
 	private AvisService avisService;
 	
-	@GetMapping("/index/{id}")
-	public ResponseEntity<List<Avis>> getAvisById(@PathVariable String id) {
-		return new ResponseEntity<List<Avis>>(avisService.getByOeuvreId(id), HttpStatus.OK);
-	}
+//	@GetMapping("/index/{id}")
+//	public ResponseEntity<List<Avis>> getAvisById(@PathVariable String id) {
+//		return new ResponseEntity<List<Avis>>(avisService.getByOeuvreId(id), HttpStatus.OK);
+//	}
 }
