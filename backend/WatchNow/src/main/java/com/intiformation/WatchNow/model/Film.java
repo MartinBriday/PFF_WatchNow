@@ -11,12 +11,16 @@ import lombok.Data;
 //@Entity
 //@Table
 //@Data
-public class Film extends OeuvreObject {
-
-    public Film() {
-    }
+public class Film extends Oeuvre {
 
     private double _duree;
     private Date _dateSortie;
+
+    public Film() {
+    }
+    
+    public Film(Oeuvre o) {
+    	super(o);
+    }
 
 }
