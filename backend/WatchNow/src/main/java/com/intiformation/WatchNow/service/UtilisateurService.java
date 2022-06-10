@@ -8,7 +8,7 @@ public interface UtilisateurService
 {
 	public List<Utilisateur> get();
 	public Utilisateur get(int id);
-    public void save(Utilisateur u);
+    public Utilisateur save(Utilisateur u);
     public void delete(int id);
     public void update(Utilisateur u);
 }

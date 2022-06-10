@@ -27,9 +27,9 @@ public class UtilisateurLoginServiceImpl implements UtilisateurLoginService
 	}
 
 	@Override
-	public void save(UtilisateurLogin ul)
+	public UtilisateurLogin save(UtilisateurLogin ul)
 	{
-		utilisateurLoginRepository.save(ul);
+		return utilisateurLoginRepository.save(ul);
 	}
 
 	@Override
