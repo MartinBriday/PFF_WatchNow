@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 
 //@Entity
 //@Data
-public class Serie extends OeuvreObject {
+public class Serie extends Oeuvre {
 
+	public Serie(Oeuvre o) {
+		super(o);
+	}
 }
