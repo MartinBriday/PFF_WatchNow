@@ -8,7 +8,7 @@ public interface LangueService
 {
 	public List<Langue> get();
 	public Langue get(int id);
-	public void save(Langue l);
+	public Langue save(Langue l);
 	public void delete(int id);
 	public void update(Langue l);
 }
