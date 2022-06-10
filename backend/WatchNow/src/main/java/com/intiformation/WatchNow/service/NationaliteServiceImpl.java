@@ -13,6 +13,9 @@ public class NationaliteServiceImpl implements NationaliteService
 {
 	@Autowired
 	NationaliteRepository nationaliteRepository;
+	
+	@Autowired
+	PersonneService personneService;
 
 	@Override
 	public List<Nationalite> get()
@@ -27,9 +30,9 @@ public class NationaliteServiceImpl implements NationaliteService
 	}
 
 	@Override
-	public void save(Nationalite n)
+	public Nationalite save(Nationalite n)
 	{
-		nationaliteRepository.save(n);
+		return nationaliteRepository.save(n);
 		
 	}
 
@@ -45,5 +48,11 @@ public class NationaliteServiceImpl implements NationaliteService
 	{
 		nationaliteRepository.save(n);
 		
+	}
+
+	@Override
+	public List<Nationalite> getNationaliteByIdPersonne(int id)
+	{
+		return personneService.get(id).get_listeNationalite();
 	}
 }
