@@ -27,9 +27,9 @@ public class LangueServiceImpl implements LangueService
 	}
 
 	@Override
-	public void save(Langue l)
+	public Langue save(Langue l)
 	{
-		langueRepository.save(l);
+		return langueRepository.save(l);
 		
 	}
 
