@@ -3,14 +3,14 @@ package com.intiformation.WatchNow.model;
 
 import java.util.*;
 
-public class Oeuvre {
+public class OeuvreObject {
 
     private String id;
     private String l;
     private Integer rank;
     private Integer y;
 
-    public Oeuvre() {
+    public OeuvreObject() {
     }
 
     public String getId() {
