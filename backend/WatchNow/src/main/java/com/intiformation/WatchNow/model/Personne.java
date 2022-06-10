@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor @NoArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Personne {
+public class Personne {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected int _idPersonne;
