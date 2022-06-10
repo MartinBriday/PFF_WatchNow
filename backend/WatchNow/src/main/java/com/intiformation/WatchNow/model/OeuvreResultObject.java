@@ -3,7 +3,7 @@ package com.intiformation.WatchNow.model;
 import java.util.List;
 
 public class OeuvreResultObject {
-	private List<Oeuvre> d = null;
+	private List<OeuvreObject> d = null;
 
     //and these are the other instance variables of this class
     private String q; //your search querry
@@ -12,7 +12,7 @@ public class OeuvreResultObject {
         return q;
     }
 
-    public List<Oeuvre> getListOeuvre() {
+    public List<OeuvreObject> getListOeuvre() {
         return d;
     }
 }

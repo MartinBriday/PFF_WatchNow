@@ -2,7 +2,7 @@ package com.intiformation.WatchNow.controller;
 
 import java.util.List;
 
-import com.intiformation.WatchNow.model.Oeuvre;
+import com.intiformation.WatchNow.model.OeuvreObject;
 import com.intiformation.WatchNow.service.OeuvreService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ public class OeuvreController {
 	private OeuvreService oeuvreService;
 	
 	@GetMapping("/oeuvre")
-	public ResponseEntity<List<Oeuvre>> getOeuvreByTitre(@RequestParam("titre") String titre) {
-		return new ResponseEntity<List<Oeuvre>>(oeuvreService.getByTitre(titre), HttpStatus.OK);
+	public ResponseEntity<List<OeuvreObject>> getOeuvreByTitre(@RequestParam("titre") String titre) {
+		return new ResponseEntity<List<OeuvreObject>>(oeuvreService.getByTitre(titre), HttpStatus.OK);
 	}
 }

@@ -11,7 +11,7 @@ import lombok.Data;
 //@Entity
 //@Table
 //@Data
-public class Film extends Oeuvre {
+public class Film extends OeuvreObject {
 
     public Film() {
     }

@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 
 //@Entity
 //@Data
-public class Serie extends Oeuvre {
+public class Serie extends OeuvreObject {
 
 }
