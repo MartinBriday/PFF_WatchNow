@@ -5,43 +5,54 @@ import java.util.*;
 
 public class Oeuvre {
 
-    private String id;
-    private String l;
-    private Integer rank;
-    private Integer y;
+    private String imdbID;
+    private String title;
+    private Integer imdbRating;
+    private Integer year;
+    private String overview;
 
-    public Oeuvre() {
+
+
+	public Oeuvre() {
     }
 
     public String getId() {
-    	return id;
+    	return imdbID;
     }
     
     public void setId(String id) {
-    	this.id = id;
+    	this.imdbID = id;
     }
     
     public String getTitre() {
-        return l;
+        return title;
     }
     
     public void setTitre(String titre) {
-    	this.l = titre;
+    	this.title = titre;
     }
     
-    public Integer getRank() {
-        return rank;
+    public Integer getNote() {
+        return imdbRating;
     }
     
-    public void setRank(Integer rank) {
-    	this.rank = rank;
+    public void setNote(Integer note) {
+    	this.imdbRating = note;
     }
     
     public Integer getDateSortie() {
-        return y;
+        return year;
     }
     
     public void setDateSortie(Integer annee) {
-    	this.y = annee;
+    	this.year = annee;
     }
+    
+    public String getSynopsis() {
+		return overview;
+	}
+
+	public void setSynopsis(String overview) {
+		this.overview = overview;
+	}
 }

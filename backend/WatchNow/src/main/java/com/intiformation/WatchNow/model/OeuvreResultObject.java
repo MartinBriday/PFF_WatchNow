@@ -3,16 +3,11 @@ package com.intiformation.WatchNow.model;
 import java.util.List;
 
 public class OeuvreResultObject {
-	private List<OeuvreObject> d = null;
+	private List<Oeuvre> results = null;
 
-    //and these are the other instance variables of this class
-    private String q; //your search querry
-
-    public String getSearchQuerry() {
-        return q;
+    public List<Oeuvre> getListOeuvre() {
+        return results;
     }
-
-    public List<OeuvreObject> getListOeuvre() {
-        return d;
-    }
+    
+ 
 }
