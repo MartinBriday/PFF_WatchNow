@@ -41,7 +41,7 @@ public class UtilisateurLoginController
 		return new ResponseEntity<UtilisateurLogin>(utilisateurLoginService.save(utilisateurLogin), HttpStatus.CREATED);
 	}
 	
-	@DeleteMapping("/delete{id}")
+	@DeleteMapping("/delete/{id}")
 	public String deleteUtilisateurLogin(@PathVariable int id) {
 		utilisateurLoginService.delete(id);
 		return "redirect:/utilisateur/index";
