@@ -13,6 +13,9 @@ public class AvisServiceImpl implements AvisService
 {
 	@Autowired
 	AvisRepository avisRepository;
+	
+	@Autowired
+	private OeuvreService oeuvreService;
 
 	@Override
 	public List<Avis> get()
@@ -45,5 +48,11 @@ public class AvisServiceImpl implements AvisService
 	{
 		avisRepository.save(a);
 		
+	}
+
+	@Override
+	public List<Avis> getByOeuvreId(String id) {
+		// TODO Auto-generated method stub
+		return oeuvreService.getById(id).getListAvis();
 	}
 }
