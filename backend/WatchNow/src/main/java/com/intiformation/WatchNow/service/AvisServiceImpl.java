@@ -50,9 +50,9 @@ public class AvisServiceImpl implements AvisService
 		
 	}
 
-	@Override
-	public List<Avis> getByOeuvreId(String id) {
-		// TODO Auto-generated method stub
-		return oeuvreService.getById(id).getListAvis();
-	}
+//	@Override
+//	public List<Avis> getByOeuvreId(String id) {
+//		// TODO Auto-generated method stub
+//		return oeuvreService.getById(id).getListAvis();
+//	}
 }
