@@ -27,9 +27,9 @@ public class PlateformeServiceImpl implements PlateformeService
 	}
 
 	@Override
-	public void save(Plateforme p)
+	public Plateforme save(Plateforme p)
 	{
-		plateformeRepository.save(p);
+		return plateformeRepository.save(p);
 		
 	}
 

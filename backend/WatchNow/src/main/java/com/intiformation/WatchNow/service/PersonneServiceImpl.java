@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class PersonneServiceImpl implements PersonneService
 {
+	
 	@Autowired
 	PersonneRepository personneRepository;
 
@@ -27,20 +28,23 @@ public class PersonneServiceImpl implements PersonneService
 	}
 
 	@Override
-	public void save(Personne p)
+	public Personne save(Personne p)
 	{
-		personneRepository.save(p);
+		return personneRepository.save(p);
 	}
 
 	@Override
 	public void delete(int id)
 	{
 		personneRepository.deleteById(id);
+		
 	}
 
 	@Override
 	public void update(Personne p)
 	{
-		personneRepository.save(p);
+		personneRepository.save(p);	
+		
 	}
+
 }

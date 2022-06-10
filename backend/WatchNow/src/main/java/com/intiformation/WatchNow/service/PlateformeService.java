@@ -8,7 +8,7 @@ public interface PlateformeService
 {
 	public List<Plateforme> get();
 	public Plateforme get(int id);
-	public void save(Plateforme p);
+	public Plateforme save(Plateforme p);
 	public void delete(int id);
 	public void update(Plateforme p);
 }

@@ -30,9 +30,9 @@ public class AvisServiceImpl implements AvisService
 	}
 
 	@Override
-	public void save(Avis a)
+	public Avis save(Avis a)
 	{
-		avisRepository.save(a);
+		return avisRepository.save(a);
 		
 	}
 
