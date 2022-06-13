@@ -36,6 +36,9 @@ public class OeuvreServiceImpl implements OeuvreService {
 	
 	@Autowired
 	SynopsisService synopsisService;
+	@Autowired
+	TrailerService trailerService;
+	
 	
 	@Override
 	public Oeuvre getById(String id) {
@@ -46,6 +49,8 @@ public class OeuvreServiceImpl implements OeuvreService {
 		    .asObject(Oeuvre.class)
             .getBody();
 		resultRequest.setSynopsis(synopsisService.getByTitleID(id));
+		resultRequest.setTrailer(trailerService.getTrailerUrlbyId(id));
+		
 		if (resultRequest.getType().equals("movie")) {
 			return new Film(resultRequest);
 		}
