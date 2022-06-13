@@ -3,6 +3,7 @@ package com.intiformation.WatchNow.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.intiformation.WatchNow.model.Episode;
 import com.intiformation.WatchNow.model.Film;
 import com.intiformation.WatchNow.model.Oeuvre;
 import com.intiformation.WatchNow.model.OeuvreBuffer;
@@ -45,6 +46,9 @@ public class OeuvreServiceImpl implements OeuvreService {
 		}
 		else if (resultRequest.getType().equals("tvSeries")) {
 			return new Serie(resultRequest);
+		}
+		else if (resultRequest.getType().equals("tvEpisode")) {
+			return new Episode(resultRequest);
 		}
 		else {
 			return null;
