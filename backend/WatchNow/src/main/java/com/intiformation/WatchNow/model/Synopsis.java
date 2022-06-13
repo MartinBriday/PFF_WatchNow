@@ -33,6 +33,8 @@ public class Synopsis {
 		this.text = text;
 	}
     
-    
+    public Synopsis(Oeuvre o) {
+    	super();
+    }
     
 }
