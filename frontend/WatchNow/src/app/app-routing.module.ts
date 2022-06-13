@@ -4,9 +4,7 @@ import { ListeAleatoireFilmComponent } from './composant/liste-aleatoire-film/li
 import { AccueilComponent } from './page/accueil/accueil.component';
 
 const routes: Routes = [
-  {path:"accueil", component: AccueilComponent, children: [
-    {path:"section2", component: ListeAleatoireFilmComponent}
-  ]}
+  {path:"accueil", component: AccueilComponent}
 ];
 
 @NgModule({
