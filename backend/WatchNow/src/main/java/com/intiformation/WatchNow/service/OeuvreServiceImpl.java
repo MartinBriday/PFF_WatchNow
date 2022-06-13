@@ -38,6 +38,8 @@ public class OeuvreServiceImpl implements OeuvreService {
 	SynopsisService synopsisService;
 	@Autowired
 	TrailerService trailerService;
+	@Autowired
+	SaisonService saisonService;
 	
 	
 	@Override
@@ -48,21 +50,26 @@ public class OeuvreServiceImpl implements OeuvreService {
 		    .header("X-RapidAPI-Key", rapidAPI_key)
 		    .asObject(Oeuvre.class)
             .getBody();
-		resultRequest.setSynopsis(synopsisService.getByTitleID(id));
-		resultRequest.setTrailer(trailerService.getTrailerUrlbyId(id));
+		
+		if (resultRequest.getType().equals("movie") || resultRequest.getType().equals("tvSeries")) {
+			resultRequest.setSynopsis(synopsisService.getByTitleID(id));
+			resultRequest.setTrailer(trailerService.getTrailerUrlbyId(id));
+		}
 		
 		if (resultRequest.getType().equals("movie")) {
-			return new Film(resultRequest);
+			Film resultFilm = new Film(resultRequest);
+			return resultFilm;
 		}
 		else if (resultRequest.getType().equals("tvSeries")) {
-			return new Serie(resultRequest);
+			Serie resultSerie = new Serie(resultRequest);
+			resultSerie.setSaisons(saisonService.getByTitleId(id));
+			return resultSerie;
 		}
 		else if (resultRequest.getType().equals("tvEpisode")) {
-			return new Episode(resultRequest);
+			Episode resultEpisode = new Episode(resultRequest);
+			return resultEpisode;
 		}
-		else {
-			return null;
-		}
+		return null;
 	}
 
 
