@@ -20,15 +20,15 @@ nav {
   padding-left: 3%;
   padding-right: 3%;
 }
-
+/*
 body{
   background-color: blue;
 }
 
 
-/* Carousel */
+Carousel */
 /* $itemGrow: 1.2;
-$duration: 250ms; */
+$duration: 250ms;
 
 .wrapper {
   display: grid;
@@ -79,4 +79,4 @@ $duration: 250ms; */
   bottom: 0;
   right: 0;
   background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
-}
+}*/
