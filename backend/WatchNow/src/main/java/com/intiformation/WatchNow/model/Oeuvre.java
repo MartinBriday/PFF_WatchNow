@@ -65,6 +65,14 @@ public class Oeuvre {
     public void setType(String type) {
     	this.title.setTitleType(type);
     }
+    
+    public Integer getDureeInMinutes() {
+    	return this.title.getRunningTimeInMinutes();
+    }
+    
+    public void setDureeInMinutes(Integer duree) {
+    	this.title.setRunningTimeInMinutes(duree);
+    }
 
     public Double getRating() {
     	return ratings.getRating();
@@ -102,6 +110,13 @@ public class Oeuvre {
 class Title {
 	private String title;
 	private String titleType;
+	private Integer episode;
+	private Integer runningTimeInMinutes;
+	private String nextEpisode;
+	private String previousEpisode;
+	private Integer numberOfEpisodes;
+	private Integer seriesStartYear;
+	private Integer seriesEndYear;
 	public String getTitle() {
 		return title;
 	}
@@ -113,6 +128,48 @@ class Title {
 	}
 	public void setTitleType(String titleType) {
 		this.titleType = titleType;
+	}
+	public Integer getEpisode() {
+		return episode;
+	}
+	public void setEpisode(Integer episode) {
+		this.episode = episode;
+	}
+	public Integer getRunningTimeInMinutes() {
+		return runningTimeInMinutes;
+	}
+	public void setRunningTimeInMinutes(Integer runningTimeInMinutes) {
+		this.runningTimeInMinutes = runningTimeInMinutes;
+	}
+	public String getNextEpisode() {
+		return nextEpisode.split("/")[2];
+	}
+	public void setNextEpisode(String nextEpisode) {
+		this.nextEpisode = nextEpisode;
+	}
+	public String getPreviousEpisode() {
+		return previousEpisode.split("/")[2];
+	}
+	public void setPreviousEpisode(String previousEpisode) {
+		this.previousEpisode = previousEpisode;
+	}
+	public Integer getNumberOfEpisodes() {
+		return numberOfEpisodes;
+	}
+	public void setNumberOfEpisodes(Integer numberOfEpisodes) {
+		this.numberOfEpisodes = numberOfEpisodes;
+	}
+	public Integer getSeriesStartYear() {
+		return seriesStartYear;
+	}
+	public void setSeriesStartYear(Integer seriesStartYear) {
+		this.seriesStartYear = seriesStartYear;
+	}
+	public Integer getSeriesEndYear() {
+		return seriesEndYear;
+	}
+	public void setSeriesEndYear(Integer seriesEndYear) {
+		this.seriesEndYear = seriesEndYear;
 	}
 }
 
