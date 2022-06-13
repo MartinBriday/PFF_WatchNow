@@ -11,6 +11,7 @@ import com.intiformation.WatchNow.model.OeuvreBufferResult;
 import com.intiformation.WatchNow.model.OeuvreResultObject;
 import com.intiformation.WatchNow.model.Serie;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kong.unirest.Unirest;
@@ -33,6 +34,9 @@ public class OeuvreServiceImpl implements OeuvreService {
 //		return resultRequest.getListOeuvre();
 //	}
 	
+	@Autowired
+	SynopsisService synopsisService;
+	
 	@Override
 	public Oeuvre getById(String id) {
 		Oeuvre resultRequest = null;
@@ -41,6 +45,7 @@ public class OeuvreServiceImpl implements OeuvreService {
 		    .header("X-RapidAPI-Key", rapidAPI_key)
 		    .asObject(Oeuvre.class)
             .getBody();
+		resultRequest.setSynopsis(synopsisService.getByTitleID(id));
 		if (resultRequest.getType().equals("movie")) {
 			return new Film(resultRequest);
 		}

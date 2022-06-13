@@ -12,6 +12,7 @@ public class Oeuvre {
     protected String[] genres;
     protected LocalDate releaseDate;
     protected PlotSummary plotSummary;
+    protected Synopsis synopsis;
 
 	public Oeuvre() {
     }
@@ -24,6 +25,7 @@ public class Oeuvre {
 		this.genres = o.genres;
 		this.releaseDate = o.releaseDate;
 		this.plotSummary = o.plotSummary;
+		this.synopsis = o.synopsis;
 	}
 
 	public String getId() {
@@ -105,6 +107,16 @@ public class Oeuvre {
     public void setSummaryAuthor(String author) {
     	this.plotSummary.setAuthor(author);
     }
+
+	public Synopsis getSynopsis() {
+		return synopsis;
+	}
+
+	public void setSynopsis(Synopsis synopsis) {
+		this.synopsis = synopsis;
+	}
+    
+    
 }
 
 class Title {
