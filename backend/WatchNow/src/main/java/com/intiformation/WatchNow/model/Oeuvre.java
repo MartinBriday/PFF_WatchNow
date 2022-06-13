@@ -13,6 +13,7 @@ public class Oeuvre {
     protected LocalDate releaseDate;
     protected PlotSummary plotSummary;
     protected Synopsis synopsis;
+    protected Trailer trailer;
 
 	public Oeuvre() {
     }
@@ -26,6 +27,7 @@ public class Oeuvre {
 		this.releaseDate = o.releaseDate;
 		this.plotSummary = o.plotSummary;
 		this.synopsis = o.synopsis;
+		this.trailer = o.trailer;
 	}
 
 	public String getId() {
@@ -115,6 +117,23 @@ public class Oeuvre {
 	public void setSynopsis(Synopsis synopsis) {
 		this.synopsis = synopsis;
 	}
+
+	public Trailer getTrailer() {
+		return trailer;
+	}
+
+	public void setTrailer(Trailer trailer) {
+		this.trailer = trailer;
+	}
+
+	public String getImageUrl() {
+		return this.title.getImage().getUrl();
+	}
+
+	public void setImageUrl(String url) {
+		this.title.getImage().setUrl(url);
+	}
+	
     
     
 }
@@ -129,6 +148,8 @@ class Title {
 	private Integer numberOfEpisodes;
 	private Integer seriesStartYear;
 	private Integer seriesEndYear;
+	private Image image;
+	
 	public String getTitle() {
 		return title;
 	}
@@ -183,6 +204,13 @@ class Title {
 	public void setSeriesEndYear(Integer seriesEndYear) {
 		this.seriesEndYear = seriesEndYear;
 	}
+	public Image getImage() {
+		return image;
+	}
+	public void setImage(Image image) {
+		this.image = image;
+	}
+	
 }
 
 class Ratings {
@@ -217,4 +245,24 @@ class PlotSummary {
 	public void setText(String text) {
 		this.text = text;
 	}
+	
+}
+
+class Image{
+	private String id;
+	private String url;
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	
+	
 }
