@@ -1,6 +1,8 @@
 package com.intiformation.WatchNow.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Synopsis {
 	private String id;
     private String language;
@@ -25,14 +27,19 @@ public class Synopsis {
 		this.language = language;
 	}
 
-	public String getSynopsis() {
+	public String getText() {
 		return text;
 	}
 
-	public void setSynopsis(String text) {
+	public void setText(String text) {
 		this.text = text;
 	}
     
-    
+
+
+	@Override
+	public String toString() {
+		return "Synopsis [id=" + id + ", language=" + language + ", text=" + text + "]";
+	}
     
 }
