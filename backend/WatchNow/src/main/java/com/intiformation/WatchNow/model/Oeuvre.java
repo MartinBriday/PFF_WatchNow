@@ -31,7 +31,7 @@ public class Oeuvre {
 	}
 
 	public String getId() {
-		return id.split("/")[2];
+		return id.split("/")[id.split("/").length-1];
 	}
 
 	public void setId(String id) {
@@ -139,17 +139,26 @@ public class Oeuvre {
 }
 
 class Title {
+	private String id;
 	private String title;
 	private String titleType;
-	private Integer episode;
 	private Integer runningTimeInMinutes;
-	private String nextEpisode;
-	private String previousEpisode;
+	private Image image;
 	private Integer numberOfEpisodes;
 	private Integer seriesStartYear;
 	private Integer seriesEndYear;
-	private Image image;
+	private Integer episode;
+	private Integer season;
+	private String nextEpisode;
+	private String previousEpisode;
+	private Title parentTitle;
 	
+	public String getId() {
+		return id.split("/")[id.split("/").length-1];
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public String getTitle() {
 		return title;
 	}
@@ -168,6 +177,12 @@ class Title {
 	public void setEpisode(Integer episode) {
 		this.episode = episode;
 	}
+	public Integer getSeason() {
+		return season;
+	}
+	public void setSeason(Integer season) {
+		this.season = season;
+	}
 	public Integer getRunningTimeInMinutes() {
 		return runningTimeInMinutes;
 	}
@@ -175,13 +190,13 @@ class Title {
 		this.runningTimeInMinutes = runningTimeInMinutes;
 	}
 	public String getNextEpisode() {
-		return nextEpisode.split("/")[2];
+		return nextEpisode.split("/")[id.split("/").length-1];
 	}
 	public void setNextEpisode(String nextEpisode) {
 		this.nextEpisode = nextEpisode;
 	}
 	public String getPreviousEpisode() {
-		return previousEpisode.split("/")[2];
+		return previousEpisode.split("/")[id.split("/").length-1];
 	}
 	public void setPreviousEpisode(String previousEpisode) {
 		this.previousEpisode = previousEpisode;
@@ -209,6 +224,12 @@ class Title {
 	}
 	public void setImage(Image image) {
 		this.image = image;
+	}
+	public Title getParentTitle() {
+		return parentTitle;
+	}
+	public void setParentTitle(Title parentTitle) {
+		this.parentTitle = parentTitle;
 	}
 	
 }

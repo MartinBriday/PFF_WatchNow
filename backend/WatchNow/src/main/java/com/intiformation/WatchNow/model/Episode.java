@@ -5,21 +5,11 @@ import java.util.*;
 
 public class Episode extends Oeuvre {
 	
-	private Saison saison;
-	
 	public Episode() {
     }
 	
 	public Episode(Oeuvre o) {
 		super(o);
-	}
-
-	public Saison getSaison() {
-		return saison;
-	}
-
-	public void setSaison(Saison saison) {
-		this.saison = saison;
 	}
 
 	public Integer getNumero() {
@@ -28,6 +18,22 @@ public class Episode extends Oeuvre {
 	
 	public void setNumero(Integer numero) {
 		this.title.setEpisode(numero);
+	}
+	
+	public Integer getNumeroSaison() {
+		return this.title.getSeason();
+	}
+	
+	public void setNumeroSaison(Integer numero) {
+		this.title.setSeason(numero);
+	}
+	
+	public String getSerieId() {
+		return this.title.getParentTitle().getId();
+	}
+	
+	public void setSerieId(String id) {
+		this.title.getParentTitle().setId(id);
 	}
 	
 	public String getNextEpisodeId() {

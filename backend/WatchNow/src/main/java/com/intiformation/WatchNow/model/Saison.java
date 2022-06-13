@@ -1,51 +1,57 @@
 package com.intiformation.WatchNow.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-//@Entity
-//@Data
-//@AllArgsConstructor @NoArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Saison {
-//	 @Id
-//	 @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+
+//    private String id;
     private int season;
-    private Serie serie;
-    private List<Episode> episodes;
+    private List<EpisodeId> episodes;
     
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
+//	public String getId() {
+//		return id;
+//	}
+//	
+//	public void setId(String id) {
+//		this.id = id;
+//	}
+	
 	public int getNumero() {
 		return season;
 	}
+	
 	public void setNumero(int season) {
 		this.season = season;
 	}
-	public Serie getSerie() {
-		return serie;
+	
+	public List<String> getEpisodes() {
+		List<String> listEpisodeId = new ArrayList<String>();
+		for (EpisodeId episodeId : episodes) {
+			listEpisodeId.add(episodeId.getId());
+		}
+		return listEpisodeId;
 	}
-	public void setSerie(Serie serie) {
-		this.serie = serie;
+	
+	public void setEpisodes(List<String> episodes) {
+		for (int ii = 0; ii < episodes.size(); ii++) {
+			this.episodes.get(ii).setId(episodes.get(ii));
+		}
 	}
-	public List<Episode> getEpisodes() {
-		return episodes;
+}
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+class EpisodeId {
+	private String id;
+
+	public String getId() {
+		return id.split("/")[id.split("/").length-1];
 	}
-	public void setEpisodes(List<Episode> episodes) {
-		this.episodes = episodes;
+
+	public void setId(String id) {
+		this.id = id;
 	}
-    
-    
 }
