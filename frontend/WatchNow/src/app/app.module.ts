@@ -1,3 +1,4 @@
+import { CarouselModule } from 'ngx-owl-carousel-o';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -24,6 +25,7 @@ import { FormInscriptionComponent } from './page/form-inscription/form-inscripti
 import { MonCompteComponent } from './page/mon-compte/mon-compte.component';
 import { RechercheAvanceeComponent } from './page/recherche-avancee/recherche-avancee.component';
 import { SerieComponent } from './page/serie/serie.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -49,13 +51,14 @@ import { SerieComponent } from './page/serie/serie.component';
     RechercheAvanceeComponent,
     SerieComponent
   ],
-  
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
+    CarouselModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
