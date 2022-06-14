@@ -1,7 +1,12 @@
+import { Synopsis } from './synopsis.model';
+import { Trailer } from './trailer.model';
 export class Oeuvre {
-  _imdbID!:string
-  _titre!:string
-  _imdbRating!:number
-  _year!:number
-  _overview!:string
+  id!:string
+  genres!:string
+  releaseDate!:Date
+  title!:OeuvreTitle
+  ratings!:OeuvreRatings
+  plotSummary!:OeuvrePlotSummary
+  synopsis!:Synopsis
+  trailer!:Trailer
 }
