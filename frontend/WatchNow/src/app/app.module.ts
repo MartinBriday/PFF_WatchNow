@@ -26,6 +26,7 @@ import { MonCompteComponent } from './page/mon-compte/mon-compte.component';
 import { RechercheAvanceeComponent } from './page/recherche-avancee/recherche-avancee.component';
 import { SerieComponent } from './page/serie/serie.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ListMostPopularFilmComponent } from './composant/list-most-popular-film/list-most-popular-film.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     FormInscriptionComponent,
     MonCompteComponent,
     RechercheAvanceeComponent,
-    SerieComponent
+    SerieComponent,
+    ListMostPopularFilmComponent
   ],
 
   imports: [
