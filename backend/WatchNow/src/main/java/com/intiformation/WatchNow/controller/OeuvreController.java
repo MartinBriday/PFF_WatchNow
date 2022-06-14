@@ -44,4 +44,13 @@ public class OeuvreController {
 		}
 		return new ResponseEntity<List<Oeuvre>>(oeuvreService.getMostPopularByType(type), HttpStatus.OK);
 	}
+	
+	@GetMapping("/oeuvre/more_like_this/{id}")
+	public ResponseEntity<List<Oeuvre>> getMoreLikeThis(@PathVariable String id, 
+			@RequestParam(name = "nbResults", required = false) Integer nbResults) {
+		if (nbResults != null && nbResults > 0) {
+			return new ResponseEntity<List<Oeuvre>>(oeuvreService.getMoreLikeThis(id, nbResults), HttpStatus.OK);
+		}
+		return new ResponseEntity<List<Oeuvre>>(oeuvreService.getMoreLikeThis(id), HttpStatus.OK);
+	}
 }
