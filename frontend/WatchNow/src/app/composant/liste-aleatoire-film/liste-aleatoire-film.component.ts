@@ -15,6 +15,9 @@ export class ListeAleatoireFilmComponent implements OnInit {
     dots: false,
     navSpeed: 700,
     navText: ['', ''],
+    margin: 20,
+    stagePadding: 20,
+    autoplay: true,
     responsive: {
       0: {
         items: 1
