@@ -24,7 +24,12 @@ public class SynopsisServiceImpl implements SynopsisService{
 			    .header("X-RapidAPI-Key", rapidAPI_key)
 			    .asObject(new GenericType<List<Synopsis>>(){})
 			    .getBody();
-		return resultRequest.get(0);
+		try {
+			return resultRequest.get(0);
+		}
+		catch (IndexOutOfBoundsException e) {
+			return null;
+		}
 	}
 
 }

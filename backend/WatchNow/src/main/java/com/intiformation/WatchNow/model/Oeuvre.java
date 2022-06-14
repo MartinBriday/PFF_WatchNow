@@ -6,10 +6,10 @@ import java.time.LocalDate;
 public class Oeuvre {
 
     protected String id;
-    protected OeuvreTitle title;
-    protected OeuvreRatings ratings;
     protected String[] genres;
     protected LocalDate releaseDate;
+    protected OeuvreTitle title;
+    protected OeuvreRatings ratings;
     protected OeuvrePlotSummary plotSummary;
     protected Synopsis synopsis;
     protected Trailer trailer;
@@ -77,36 +77,20 @@ public class Oeuvre {
     	this.title.setRunningTimeInMinutes(duree);
     }
 
-    public Double getRating() {
-    	return ratings.getRating();
+    public OeuvreRatings getRatings() {
+    	return ratings;
     }
     
-    public void setRating(Double rating) {
-    	this.ratings.setRating(rating);
+    public void setRatings(OeuvreRatings ratings) {
+    	this.ratings = ratings;
     }
 
-    public Integer getRatingCount() {
-    	return ratings.getRatingCount();
+    public OeuvrePlotSummary getPlotSummary() {
+    	return plotSummary;
     }
     
-    public void setRatingCount(Integer ratingCount) {
-    	this.ratings.setRatingCount(ratingCount);
-    }
-
-    public String getSummary() {
-    	return plotSummary.getText();
-    }
-    
-    public void setSummary(String summary) {
-    	this.plotSummary.setText(summary);
-    }
-
-    public String getSummaryAuthor() {
-    	return plotSummary.getAuthor();
-    }
-    
-    public void setSummaryAuthor(String author) {
-    	this.plotSummary.setAuthor(author);
+    public void setPlotSummary(OeuvrePlotSummary plotSummary) {
+    	this.plotSummary = plotSummary;
     }
 
 	public Synopsis getSynopsis() {
