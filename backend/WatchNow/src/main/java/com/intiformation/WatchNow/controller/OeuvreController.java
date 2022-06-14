@@ -22,18 +22,26 @@ public class OeuvreController {
 	@Autowired
 	private OeuvreService oeuvreService;
 	
-	@GetMapping("/oeuvre/titre/{titre}")
-	public ResponseEntity<List<Oeuvre>> getOeuvreByTitre(@PathVariable String titre) {
-		return new ResponseEntity<List<Oeuvre>>(oeuvreService.getByTitre(titre), HttpStatus.OK);
-	}
-	
 	@GetMapping("/oeuvre/id/{id}")
 	public ResponseEntity<Oeuvre> getOeuvreById(@PathVariable String id) {
 		return new ResponseEntity<Oeuvre>(oeuvreService.getById(id), HttpStatus.OK);
 	}
 	
+	@GetMapping("/oeuvre/titre/{titre}")
+	public ResponseEntity<List<Oeuvre>> getOeuvreByTitre(@PathVariable String titre, 
+			@RequestParam(name = "nbResults", required = false) Integer nbResults) {
+		if (nbResults != null && nbResults > 0) {
+			return new ResponseEntity<List<Oeuvre>>(oeuvreService.getByTitre(titre, nbResults), HttpStatus.OK);
+		}
+		return new ResponseEntity<List<Oeuvre>>(oeuvreService.getByTitre(titre), HttpStatus.OK);
+	}
+	
 	@GetMapping("/index/type/{type}")
-	public ResponseEntity<List<Oeuvre>> getMostPopularByType(@PathVariable String type) {
+	public ResponseEntity<List<Oeuvre>> getMostPopularByType(@PathVariable String type, 
+			@RequestParam(name = "nbResults", required = false) Integer nbResults) {
+		if (nbResults != null && nbResults > 0) {
+			return new ResponseEntity<List<Oeuvre>>(oeuvreService.getMostPopularByType(type, nbResults), HttpStatus.OK);
+		}
 		return new ResponseEntity<List<Oeuvre>>(oeuvreService.getMostPopularByType(type), HttpStatus.OK);
 	}
 }

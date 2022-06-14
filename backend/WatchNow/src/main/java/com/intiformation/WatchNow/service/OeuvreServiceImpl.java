@@ -47,7 +47,7 @@ public class OeuvreServiceImpl implements OeuvreService {
 			Film resultFilm = new Film(resultRequest);
 			return resultFilm;
 		}
-		else if (resultRequest.getType().equals("tvSeries")) {
+		else if (resultRequest.getType().equals("tvSeries") || resultRequest.getType().equals("tvMiniSeries")) {
 			Serie resultSerie = new Serie(resultRequest);
 			resultSerie.setSaisons(saisonService.getByTitleId(id));
 			return resultSerie;
@@ -59,10 +59,8 @@ public class OeuvreServiceImpl implements OeuvreService {
 		return null;
 	}
 
-
 	@Override
 	public List<Oeuvre> getByTitre(String titre) {
-		int ii_max = 3;
 		List<Oeuvre> listOeuvre = new ArrayList<Oeuvre>();
 		OeuvreBufferResult resultRequest = null;
 		resultRequest = Unirest.get(requestURL_mdblist + "?s=" + titre)
@@ -70,16 +68,30 @@ public class OeuvreServiceImpl implements OeuvreService {
 			.header("X-RapidAPI-Host", "mdblist.p.rapidapi.com")
 		    .asObject(OeuvreBufferResult.class)
             .getBody();
-		for (int ii = 0; ii < ii_max; ii++) {
-			listOeuvre.add(getById(resultRequest.getSearch().get(ii).getID()));
+		for (OeuvreBuffer _ob : resultRequest.getSearch()) {
+			listOeuvre.add(getById(_ob.getID()));
 		}
 		return listOeuvre;
 	}
 
 
 	@Override
+	public List<Oeuvre> getByTitre(String titre, Integer nbResults) {
+		List<Oeuvre> listOeuvre = new ArrayList<Oeuvre>();
+		OeuvreBufferResult resultRequest = null;
+		resultRequest = Unirest.get(requestURL_mdblist + "?s=" + titre)
+			.header("X-RapidAPI-Key", rapidAPI_key)
+			.header("X-RapidAPI-Host", "mdblist.p.rapidapi.com")
+		    .asObject(OeuvreBufferResult.class)
+            .getBody();
+		for (int ii = 0; ii < nbResults; ii++) {
+			listOeuvre.add(getById(resultRequest.getSearch().get(ii).getID()));
+		}
+		return listOeuvre;
+	}
+
+	@Override
 	public List<Oeuvre> getMostPopularByType(String type) {
-		int ii_max = 3;
 		String _requestURL_type = null;
 		List<Oeuvre> listOeuvre = new ArrayList<Oeuvre>();
 		if (type.equals("film")) {
@@ -95,12 +107,34 @@ public class OeuvreServiceImpl implements OeuvreService {
 			    .asObject(new GenericType<List<String>>(){})
 	            .getBody();
 		String _id;
-		for (int ii = 0; ii < ii_max; ii++) {
-			_id = listOeuvreId.get(ii).split("/")[listOeuvreId.get(ii).split("/").length-1];
+		for (String _oid : listOeuvreId) {
+			_id = _oid.split("/")[_oid.split("/").length-1];
 			listOeuvre.add(getById(_id));
 		}
 		return listOeuvre;
 	}
 
-	
+	@Override
+	public List<Oeuvre> getMostPopularByType(String type, Integer nbResults) {
+		String _requestURL_type = null;
+		List<Oeuvre> listOeuvre = new ArrayList<Oeuvre>();
+		if (type.equals("film")) {
+			_requestURL_type = "title/get-most-popular-movies?currentCountry=US&purchaseCountry=US&homeCountry=US";
+		}
+		else if (type.equals("serie")) {
+			_requestURL_type = "title/get-most-popular-tv-shows?currentCountry=US&purchaseCountry=US&homeCountry=US";
+		}
+		List<String> listOeuvreId = null;
+		listOeuvreId = Unirest.get(requestURL_OMD + _requestURL_type)
+				.header("X-RapidAPI-Key", rapidAPI_key)
+				.header("X-RapidAPI-Host", "online-movie-database.p.rapidapi.com")
+			    .asObject(new GenericType<List<String>>(){})
+	            .getBody();
+		String _id;
+		for (int ii = 0; ii < nbResults; ii++) {
+			_id = listOeuvreId.get(ii).split("/")[listOeuvreId.get(ii).split("/").length-1];
+			listOeuvre.add(getById(_id));
+		}
+		return listOeuvre;
+	}
 }
