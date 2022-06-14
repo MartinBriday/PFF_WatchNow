@@ -15,4 +15,6 @@ public interface OeuvreService {
 	List<Oeuvre> getMostPopularByTypeAndGenre(String type, String genre, Integer nbResults);
 	List<Oeuvre> getMoreLikeThis(String id);
 	List<Oeuvre> getMoreLikeThis(String id, Integer nbResults);
+	List<Oeuvre> getByKeyword(String keyword);
+	List<Oeuvre> getByKeyword(String keyword, Integer nbResults);
 }
