@@ -137,4 +137,38 @@ public class OeuvreServiceImpl implements OeuvreService {
 		}
 		return listOeuvre;
 	}
+
+	@Override
+	public List<Oeuvre> getMoreLikeThis(String id) {
+		List<Oeuvre> listOeuvre = new ArrayList<Oeuvre>();
+		List<String> listOeuvreId = null;
+		listOeuvreId = Unirest.get(requestURL_OMD + "title/get-more-like-this?currentCountry=US&purchaseCountry=US&tconst=" + id)
+				.header("X-RapidAPI-Key", rapidAPI_key)
+				.header("X-RapidAPI-Host", "online-movie-database.p.rapidapi.com")
+			    .asObject(new GenericType<List<String>>(){})
+	            .getBody();
+		String _id;
+		for (String _oid : listOeuvreId) {
+			_id = _oid.split("/")[_oid.split("/").length-1];
+			listOeuvre.add(getById(_id));
+		}
+		return listOeuvre;
+	}
+
+	@Override
+	public List<Oeuvre> getMoreLikeThis(String id, Integer nbResults) {
+		List<Oeuvre> listOeuvre = new ArrayList<Oeuvre>();
+		List<String> listOeuvreId = null;
+		listOeuvreId = Unirest.get(requestURL_OMD + "title/get-more-like-this?currentCountry=US&purchaseCountry=US&tconst=" + id)
+				.header("X-RapidAPI-Key", rapidAPI_key)
+				.header("X-RapidAPI-Host", "online-movie-database.p.rapidapi.com")
+			    .asObject(new GenericType<List<String>>(){})
+	            .getBody();
+		String _id;
+		for (int ii = 0; ii < nbResults; ii++) {
+			_id = listOeuvreId.get(ii).split("/")[listOeuvreId.get(ii).split("/").length-1];
+			listOeuvre.add(getById(_id));
+		}
+		return listOeuvre;
+	}
 }
