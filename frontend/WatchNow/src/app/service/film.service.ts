@@ -12,6 +12,6 @@ export class FilmService {
   constructor(private httpCLient: HttpClient) { }
 
   getMostPopularFilm():Observable<Film[]> {
-    return this.httpCLient.get<Film[]>(environment.url +)
+    return this.httpCLient.get<Film[]>(environment.url + "oeuvre/index/type/film?nbResults=8")
   }
 }
