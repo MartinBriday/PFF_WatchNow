@@ -27,6 +27,7 @@ import { RechercheAvanceeComponent } from './page/recherche-avancee/recherche-av
 import { SerieComponent } from './page/serie/serie.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ListMostPopularFilmComponent } from './composant/list-most-popular-film/list-most-popular-film.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { ListMostPopularFilmComponent } from './composant/list-most-popular-film
     FormsModule,
     ReactiveFormsModule,
     CarouselModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
