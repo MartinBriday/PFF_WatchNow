@@ -9,11 +9,11 @@ public class Trailer
 	
 	}
 
-	public String getTrailer() {
+	public String getTrailerUrl() {
 		return trailer;
 	}
 
-	public void setTrailer(String trailer) {
+	public void setTrailerUrl(String trailer) {
 		this.trailer = trailer;
 	}
 
