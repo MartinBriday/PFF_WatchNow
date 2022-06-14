@@ -8,5 +8,5 @@ public interface OeuvreService {
 
 	List<Oeuvre> getByTitre(String titre);
 	Oeuvre getById(String id);
-
+	List<Oeuvre> getMostPopularByType(String type);
 }

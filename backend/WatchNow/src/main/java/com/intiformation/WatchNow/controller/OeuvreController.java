@@ -31,4 +31,9 @@ public class OeuvreController {
 	public ResponseEntity<Oeuvre> getOeuvreById(@PathVariable String id) {
 		return new ResponseEntity<Oeuvre>(oeuvreService.getById(id), HttpStatus.OK);
 	}
+	
+	@GetMapping("/index/type/{type}")
+	public ResponseEntity<List<Oeuvre>> getMostPopularByType(@PathVariable String type) {
+		return new ResponseEntity<List<Oeuvre>>(oeuvreService.getMostPopularByType(type), HttpStatus.OK);
+	}
 }

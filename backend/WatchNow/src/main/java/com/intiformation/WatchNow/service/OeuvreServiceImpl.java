@@ -9,30 +9,17 @@ import com.intiformation.WatchNow.model.Oeuvre;
 import com.intiformation.WatchNow.model.OeuvreBuffer;
 import com.intiformation.WatchNow.model.OeuvreBufferResult;
 import com.intiformation.WatchNow.model.OeuvreResultObject;
+import com.intiformation.WatchNow.model.Saison;
 import com.intiformation.WatchNow.model.Serie;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import kong.unirest.GenericType;
 import kong.unirest.Unirest;
 
 @Service
 public class OeuvreServiceImpl implements OeuvreService {
-
-	private static final String requestURL_OMD = "https://online-movie-database.p.rapidapi.com/";
-	private static final String requestURL_mdblist = "https://mdblist.p.rapidapi.com/";
-	private static final String rapidAPI_key = "f8c66a27d0msh5fb0123b6da76c7p12ef0cjsna74230c7548d";
-	
-
-//	@Override
-//	public List<Oeuvre> getByTitre(String titre) {
-//		resultRequest = Unirest.get(requestURL + "search/basic?country=us&service=netflix&type=series&keyword=" + titre)
-//		    .header("X-RapidAPI-Host", "streaming-availability.p.rapidapi.com")
-//		    .header("X-RapidAPI-Key", "f69fe30c89msh67c47b9daafa953p14b7cdjsn133e63e7f94c")
-//		    .asObject(OeuvreResultObject.class)
-//            .getBody();
-//		return resultRequest.getListOeuvre();
-//	}
 	
 	@Autowired
 	SynopsisService synopsisService;
@@ -40,7 +27,10 @@ public class OeuvreServiceImpl implements OeuvreService {
 	TrailerService trailerService;
 	@Autowired
 	SaisonService saisonService;
-	
+
+	private static final String requestURL_OMD = "https://online-movie-database.p.rapidapi.com/";
+	private static final String requestURL_mdblist = "https://mdblist.p.rapidapi.com/";
+	private static final String rapidAPI_key = "f8c66a27d0msh5fb0123b6da76c7p12ef0cjsna74230c7548d";
 	
 	@Override
 	public Oeuvre getById(String id) {
@@ -82,6 +72,32 @@ public class OeuvreServiceImpl implements OeuvreService {
             .getBody();
 		for (int ii = 0; ii < ii_max; ii++) {
 			listOeuvre.add(getById(resultRequest.getSearch().get(ii).getID()));
+		}
+		return listOeuvre;
+	}
+
+
+	@Override
+	public List<Oeuvre> getMostPopularByType(String type) {
+		int ii_max = 3;
+		String _requestURL_type = null;
+		List<Oeuvre> listOeuvre = new ArrayList<Oeuvre>();
+		if (type.equals("film")) {
+			_requestURL_type = "title/get-most-popular-movies?currentCountry=US&purchaseCountry=US&homeCountry=US";
+		}
+		else if (type.equals("serie")) {
+			_requestURL_type = "title/get-most-popular-tv-shows?currentCountry=US&purchaseCountry=US&homeCountry=US";
+		}
+		List<String> listOeuvreId = null;
+		listOeuvreId = Unirest.get(requestURL_OMD + _requestURL_type)
+				.header("X-RapidAPI-Key", rapidAPI_key)
+				.header("X-RapidAPI-Host", "online-movie-database.p.rapidapi.com")
+			    .asObject(new GenericType<List<String>>(){})
+	            .getBody();
+		String _id;
+		for (int ii = 0; ii < ii_max; ii++) {
+			_id = listOeuvreId.get(ii).split("/")[listOeuvreId.get(ii).split("/").length-1];
+			listOeuvre.add(getById(_id));
 		}
 		return listOeuvre;
 	}
