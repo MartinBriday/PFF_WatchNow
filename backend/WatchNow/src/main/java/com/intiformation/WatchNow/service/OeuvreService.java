@@ -11,6 +11,8 @@ public interface OeuvreService {
 	List<Oeuvre> getByTitre(String titre, Integer nbResults);
 	List<Oeuvre> getMostPopularByType(String type);
 	List<Oeuvre> getMostPopularByType(String type, Integer nbResults);
+	List<Oeuvre> getMostPopularByTypeAndGenre(String type, String genre);
+	List<Oeuvre> getMostPopularByTypeAndGenre(String type, String genre, Integer nbResults);
 	List<Oeuvre> getMoreLikeThis(String id);
 	List<Oeuvre> getMoreLikeThis(String id, Integer nbResults);
 }

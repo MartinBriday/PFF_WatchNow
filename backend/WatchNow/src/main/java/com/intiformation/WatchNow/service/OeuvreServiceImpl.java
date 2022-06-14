@@ -139,6 +139,54 @@ public class OeuvreServiceImpl implements OeuvreService {
 	}
 
 	@Override
+	public List<Oeuvre> getMostPopularByTypeAndGenre(String type, String genre) {
+		String _requestURL_type = null;
+		List<Oeuvre> listOeuvre = new ArrayList<Oeuvre>();
+		if (type.equals("film")) {
+			_requestURL_type = "title/v2/get-popular-movies-by-genre?limit=100&genre=";
+		}
+//		else if (type.equals("serie")) {
+//			_requestURL_type = "title/v2/get-popular-tv-shows-by-genre?limit=100&genre=";
+//		}
+		List<String> listOeuvreId = null;
+		listOeuvreId = Unirest.get(requestURL_OMD + _requestURL_type + genre)
+				.header("X-RapidAPI-Key", rapidAPI_key)
+				.header("X-RapidAPI-Host", "online-movie-database.p.rapidapi.com")
+			    .asObject(new GenericType<List<String>>(){})
+	            .getBody();
+		String _id;
+		for (String _oid : listOeuvreId) {
+			_id = _oid.split("/")[_oid.split("/").length-1];
+			listOeuvre.add(getById(_id));
+		}
+		return listOeuvre;
+	}
+
+	@Override
+	public List<Oeuvre> getMostPopularByTypeAndGenre(String type, String genre, Integer nbResults) {
+		String _requestURL_type = null;
+		List<Oeuvre> listOeuvre = new ArrayList<Oeuvre>();
+		if (type.equals("film")) {
+			_requestURL_type = "title/v2/get-popular-movies-by-genre?limit=100&genre=";
+		}
+//		else if (type.equals("serie")) {
+//			_requestURL_type = "title/v2/get-popular-tv-shows-by-genre?limit=100&genre=";
+//		}
+		List<String> listOeuvreId = null;
+		listOeuvreId = Unirest.get(requestURL_OMD + _requestURL_type + genre)
+				.header("X-RapidAPI-Key", rapidAPI_key)
+				.header("X-RapidAPI-Host", "online-movie-database.p.rapidapi.com")
+			    .asObject(new GenericType<List<String>>(){})
+	            .getBody();
+		String _id;
+		for (int ii = 0; ii < nbResults; ii++) {
+			_id = listOeuvreId.get(ii).split("/")[listOeuvreId.get(ii).split("/").length-1];
+			listOeuvre.add(getById(_id));
+		}
+		return listOeuvre;
+	}
+
+	@Override
 	public List<Oeuvre> getMoreLikeThis(String id) {
 		List<Oeuvre> listOeuvre = new ArrayList<Oeuvre>();
 		List<String> listOeuvreId = null;
