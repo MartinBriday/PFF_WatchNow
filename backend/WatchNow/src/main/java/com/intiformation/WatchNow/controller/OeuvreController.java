@@ -47,6 +47,15 @@ public class OeuvreController {
 		return new ResponseEntity<List<Oeuvre>>(oeuvreService.getMoreLikeThis(id), HttpStatus.OK);
 	}
 	
+	@GetMapping("/index/type/{type}")
+	public ResponseEntity<List<Oeuvre>> getMostPopularByType(@PathVariable String type, 
+			@RequestParam(name = "nbResults", required = false) Integer nbResults) {
+		if (nbResults != null && nbResults > 0) {
+			return new ResponseEntity<List<Oeuvre>>(oeuvreService.getMostPopularByType(type, nbResults), HttpStatus.OK);
+		}
+		return new ResponseEntity<List<Oeuvre>>(oeuvreService.getMostPopularByType(type), HttpStatus.OK);
+	}
+	
 	@GetMapping("/index/type/{type}/genre/{genre}")
 	public ResponseEntity<List<Oeuvre>> getMostPopularByType(@PathVariable String type, @PathVariable String genre, 
 			@RequestParam(name = "nbResults", required = false) Integer nbResults) {
