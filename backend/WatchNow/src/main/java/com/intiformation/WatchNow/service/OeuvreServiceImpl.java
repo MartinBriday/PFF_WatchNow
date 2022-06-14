@@ -50,11 +50,8 @@ public class OeuvreServiceImpl implements OeuvreService {
 		    .header("X-RapidAPI-Key", rapidAPI_key)
 		    .asObject(Oeuvre.class)
             .getBody();
-		
-		if (resultRequest.getType().equals("movie") || resultRequest.getType().equals("tvSeries")) {
-			resultRequest.setSynopsis(synopsisService.getByTitleID(id));
-			resultRequest.setTrailer(trailerService.getTrailerUrlbyId(id));
-		}
+		resultRequest.setSynopsis(synopsisService.getByTitleID(id));
+		resultRequest.setTrailer(trailerService.getTrailerUrlbyId(id));
 		
 		if (resultRequest.getType().equals("movie")) {
 			Film resultFilm = new Film(resultRequest);
