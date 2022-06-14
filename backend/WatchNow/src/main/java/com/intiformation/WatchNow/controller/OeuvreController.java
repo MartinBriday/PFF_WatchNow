@@ -64,4 +64,13 @@ public class OeuvreController {
 		}
 		return new ResponseEntity<List<Oeuvre>>(oeuvreService.getMostPopularByTypeAndGenre(type, genre), HttpStatus.OK);
 	}
+	
+	@GetMapping("/index/keyword/{keyword}")
+	public ResponseEntity<List<Oeuvre>> getByKeyword(@PathVariable String keyword, 
+			@RequestParam(name = "nbResults", required = false) Integer nbResults) {
+		if (nbResults != null && nbResults > 0) {
+			return new ResponseEntity<List<Oeuvre>>(oeuvreService.getByKeyword(keyword, nbResults), HttpStatus.OK);
+		}
+		return new ResponseEntity<List<Oeuvre>>(oeuvreService.getByKeyword(keyword), HttpStatus.OK);
+	}
 }
