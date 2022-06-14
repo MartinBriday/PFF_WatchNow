@@ -3,6 +3,7 @@ package com.intiformation.WatchNow.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.intiformation.WatchNow.configuration.RapidAPIKey;
 import com.intiformation.WatchNow.model.Episode;
 import com.intiformation.WatchNow.model.Film;
 import com.intiformation.WatchNow.model.Oeuvre;
@@ -30,7 +31,7 @@ public class OeuvreServiceImpl implements OeuvreService {
 
 	private static final String requestURL_OMD = "https://online-movie-database.p.rapidapi.com/";
 	private static final String requestURL_mdblist = "https://mdblist.p.rapidapi.com/";
-	private static final String rapidAPI_key = "f8c66a27d0msh5fb0123b6da76c7p12ef0cjsna74230c7548d";
+	private static final String rapidAPI_key = RapidAPIKey.rapidAPIKey;
 	
 	@Override
 	public Oeuvre getById(String id) {
@@ -218,5 +219,26 @@ public class OeuvreServiceImpl implements OeuvreService {
 			listOeuvre.add(getById(_id));
 		}
 		return listOeuvre;
+	}
+
+	@Override
+	public List<Oeuvre> getByKeyword(String keyword) {
+		List<Oeuvre> listOeuvre = new ArrayList<Oeuvre>();
+//		List<String> resultRequest = null;
+//		resultRequest = Unirest.get(requestURL_mdblist + "?s=" + titre)
+//			.header("X-RapidAPI-Key", rapidAPI_key)
+//			.header("X-RapidAPI-Host", "mdblist.p.rapidapi.com")
+//		    .asObject(OeuvreBufferResult.class)
+//            .getBody();
+//		for (OeuvreBuffer _ob : resultRequest.getSearch()) {
+//			listOeuvre.add(getById(_ob.getID()));
+//		}
+		return listOeuvre;
+	}
+
+	@Override
+	public List<Oeuvre> getByKeyword(String keyword, Integer nbResults) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

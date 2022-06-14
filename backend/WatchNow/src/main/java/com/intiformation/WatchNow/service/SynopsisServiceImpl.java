@@ -2,6 +2,7 @@ package com.intiformation.WatchNow.service;
 
 import java.util.List;
 
+import com.intiformation.WatchNow.configuration.RapidAPIKey;
 import com.intiformation.WatchNow.model.Synopsis;
 
 import org.springframework.stereotype.Service;
@@ -13,7 +14,7 @@ import kong.unirest.Unirest;
 public class SynopsisServiceImpl implements SynopsisService{
 
 	private static final String requestURL_OMD = "https://online-movie-database.p.rapidapi.com/";
-	private static final String rapidAPI_key = "e09070b4b4msh250a66c95cbf5b5p1bfc62jsna373a4d2b8c1";
+	private static final String rapidAPI_key = RapidAPIKey.rapidAPIKey;
 	
 	
 	@Override
