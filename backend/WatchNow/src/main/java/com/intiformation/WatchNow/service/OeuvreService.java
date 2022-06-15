@@ -1,6 +1,5 @@
 package com.intiformation.WatchNow.service;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import com.intiformation.WatchNow.model.Oeuvre;

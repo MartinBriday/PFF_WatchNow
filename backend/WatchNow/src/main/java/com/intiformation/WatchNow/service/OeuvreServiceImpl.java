@@ -10,7 +10,6 @@ import com.intiformation.WatchNow.model.Film;
 import com.intiformation.WatchNow.model.Oeuvre;
 import com.intiformation.WatchNow.model.OeuvreBuffer;
 import com.intiformation.WatchNow.model.OeuvreBufferResult;
-import com.intiformation.WatchNow.model.Saison;
 import com.intiformation.WatchNow.model.Serie;
 
 import org.springframework.beans.factory.annotation.Autowired;
