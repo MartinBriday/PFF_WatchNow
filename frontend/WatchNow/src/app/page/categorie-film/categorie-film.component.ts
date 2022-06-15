@@ -48,10 +48,11 @@ export class CategorieFilmComponent implements OnInit {
   ngOnInit(): void {
     this.listMostPopularFilmByGenreAction$ = this.filmService.getMostPopularFilmByGenreAction();
 
-    /* setTimeout(function(){
-      console.log("Ready");
-      this.listMostPopularFilmByGenreAction$ = this.filmService.getMostPopularFilmByGenreAction();
-      }, 5000); */
+    // setTimeout(function(){
+    //   console.log("Ready");
+    //   this.listMostPopularFilmByGenreAction$ = this.filmService.getMostPopularFilmByGenreAction();
+    //   }, 5000);
+
     // this.listMostPopularFilmByGenreHorror$ = this.filmService.getMostPopularFilmByGenreHorror();
     // this.listMostPopularFilmByGenreCrime$ = this.filmService.getMostPopularFilmByGenreCrime();
     // this.listMostPopularFilmByGenreAnimation$ = this.filmService.getMostPopularFilmByGenreAnimation();
