@@ -123,4 +123,8 @@ export class FilmService {
   getMostPopularFilmByGenreRomance():Observable<Film[]> {
     return this.httpCLient.get<Film[]>(environment.url + "oeuvre/index/type/film/genre/romance?nbResults=3")
   }
+
+  getComingSoonFilm():Observable<Film[]> {
+    return this.httpCLient.get<Film[]>(environment.url + "oeuvre/index/coming_soon/type/film?nbResults=8")
+  }
 }
