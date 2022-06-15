@@ -1,0 +1,10 @@
+<h1>FILM A VENIR</h1>
+
+  <div>
+  <owl-carousel-o [options]="customOptions" >
+    <ng-template carouselSlide class="carouselSlide" *ngFor="let l of listeComingSoonFilm$ | async">
+      <button (click)="ngOnDiplay(l.id)"><img class="carouselImage" [src]="l.image.url"></button>
+    </ng-template>
+  </owl-carousel-o>
+</div>
+

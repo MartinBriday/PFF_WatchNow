@@ -1,17 +1,16 @@
-import { FilmService } from './../../service/film.service';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Film } from 'src/app/model/film.model';
 import { Router } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { Observable } from 'rxjs';
+import { Film } from 'src/app/model/film.model';
+import { FilmService } from 'src/app/service/film.service';
 
 @Component({
-  selector: 'app-list-most-popular-film',
-  templateUrl: './list-most-popular-film.component.html',
-  styleUrls: ['./list-most-popular-film.component.css']
+  selector: 'app-liste-coming-soon-film',
+  templateUrl: './liste-coming-soon-film.component.html',
+  styleUrls: ['./liste-coming-soon-film.component.css']
 })
-export class ListMostPopularFilmComponent implements OnInit {
-  id!:string
+export class ListeComingSoonFilmComponent implements OnInit {
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,
@@ -41,18 +40,15 @@ export class ListMostPopularFilmComponent implements OnInit {
   }
   constructor(private filmService: FilmService, private router: Router) { }
 
-  listMostPopularFilm$!: Observable<Film[]>
-  film$!: Observable<Film>
-  ngOnInit(): void {
-    this.listMostPopularFilm$ = this.filmService.getMostPopularFilm();
+  listeComingSoonFilm$!: Observable<Film[]>
 
+  ngOnInit(): void {
+    this.listeComingSoonFilm$ = this.filmService.getComingSoonFilm();
   }
+
   ngOnDiplay(id:string)
   {
-
     this.router.navigateByUrl("/film/" + id)
   }
-  // getMostPopularFilm():Observable<Film[]> {
-  //   return
-  // }
+
 }

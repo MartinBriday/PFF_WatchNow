@@ -15,7 +15,14 @@ export class FilmService {
     return this.httpCLient.get<Film[]>(environment.url + "oeuvre/index/type/film?nbResults=8")
   }
 
+
   /********************CATEGORIE FILM******************************************/
+
+  getOeuvreByIdFilm(id:string):Observable<Film>
+  {
+    return this.httpCLient.get<Film>(environment.url + "oeuvre/oeuvre/id/" + id)
+  }
+
   getMostPopularFilmByGenreAction():Observable<Film[]> {
     return this.httpCLient.get<Film[]>(environment.url + "oeuvre/index/type/film/genre/action?nbResults=3")
   }
@@ -116,8 +123,13 @@ export class FilmService {
   //   return this.httpCLient.get<Film[]>(environment.url + "oeuvre/index/type/film/genre/sci-fi?nbResults=3")
   // }
 
+
   // getMostPopularFilmByGenreRomance():Observable<Film[]> {
   //   return this.httpCLient.get<Film[]>(environment.url + "oeuvre/index/type/film/genre/romance?nbResults=3")
   // }
   /******************************************************************************/
+  
+  getComingSoonFilm():Observable<Film[]> {
+    return this.httpCLient.get<Film[]>(environment.url + "oeuvre/index/coming_soon/type/film?nbResults=8")
+  }
 }

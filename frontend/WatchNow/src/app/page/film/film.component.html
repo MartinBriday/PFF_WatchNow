@@ -1,1 +1,52 @@
-<p>film works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Film</title>
+</head>
+
+<body>
+
+
+<div class="container" id="affichageFilm">
+  <div *ngIf="film$ | async as f">
+    <h1>{{f.titre}}</h1>
+    <h2>date de sortie : {{f.releaseDate}}</h2>
+    <img src="{{f.image.url}}" id="PosterFilm">
+
+    <div *ngIf="!f.plotSummary.text; then thenBlock else elseBlock">null</div>
+    <ng-template #thenBlock>
+      <h3>Synopsis</h3>
+      <p>
+        {{f.plotSummary.text}}
+      </p></ng-template>
+    <ng-template #elseBlock>
+      Pas de résumé disponible
+    </ng-template>
+
+
+
+    <div *ngIf="!f.synopsis.text == null; then thenBlock else elseBlock"></div>
+    <ng-template #thenBlock>
+      <h3>Synopsis</h3>
+      <p>
+        {{f.synopsis.text}}
+      </p></ng-template>
+    <ng-template #elseBlock>
+      Pas de synopsis disponible
+    </ng-template>
+
+    <h3>Regardez le trailer sur Youtube</h3>
+
+
+    <a href="{{f.trailer.trailerUrl}}">Youtube</a>
+
+
+  </div>
+</div>
+</body>
+
+</html>
+
