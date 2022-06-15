@@ -6,12 +6,13 @@ import { SynopsisComponent } from './composant/synopsis/synopsis.component';
 import { AccueilComponent } from './page/accueil/accueil.component';
 import { Erreur404Component } from './page/erreur404/erreur404.component';
 import { FilmComponent } from './page/film/film.component';
+import { ResultatRechercheComponent } from './page/resultat-recherche/resultat-recherche.component';
 
 const routes: Routes = [
   {path:"accueil", component: AccueilComponent},
   {path:"categorie-film", component: CategorieFilmComponent},
+  {path:"recherche/:searchWord", component: ResultatRechercheComponent},
   {path:"film/:id", component: FilmComponent, children:[{path: "synopsis/:id", component: SynopsisComponent}]},
-
   {path : "**", component: Erreur404Component}
 ];
 
