@@ -8,3 +8,8 @@
 {
   text-align: center;
 }
+
+#box {
+  display: none;
+  transition-duration: 10s;
+}

@@ -29,10 +29,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ListMostPopularFilmComponent } from './composant/list-most-popular-film/list-most-popular-film.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ListMostPopularSerieComponent } from './composant/list-most-popular-serie/list-most-popular-serie.component';
+import { SynopsisComponent } from './composant/synopsis/synopsis.component';
 import { ListeComingSoonFilmComponent } from './composant/liste-coming-soon-film/liste-coming-soon-film.component';
 import { FooterComponent } from './composant/footer/footer.component';
 import { ListeComingSoonSerieComponent } from './composant/liste-coming-soon-serie/liste-coming-soon-serie.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,6 +58,7 @@ import { ListeComingSoonSerieComponent } from './composant/liste-coming-soon-ser
     SerieComponent,
     ListMostPopularFilmComponent,
     ListMostPopularSerieComponent,
+    SynopsisComponent,
     ListeComingSoonFilmComponent,
     FooterComponent,
     ListeComingSoonSerieComponent
