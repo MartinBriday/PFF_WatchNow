@@ -28,7 +28,7 @@
 
 
 <div class="container" *ngIf="film$ | async as f">
-  <button routerLink="/film/{{f.id}}/synopsis">Voir le synopsis complet</button>
+  <button routerLink="/film/{{f.id}}/synopsis/{{f.id}}">Voir le synopsis complet</button>
 </div>
 
 
