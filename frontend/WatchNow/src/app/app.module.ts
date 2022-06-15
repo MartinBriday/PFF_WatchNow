@@ -30,6 +30,8 @@ import { ListMostPopularFilmComponent } from './composant/list-most-popular-film
 import { HttpClientModule } from '@angular/common/http';
 import { ListMostPopularSerieComponent } from './composant/list-most-popular-serie/list-most-popular-serie.component';
 import { ListeComingSoonFilmComponent } from './composant/liste-coming-soon-film/liste-coming-soon-film.component';
+import { FooterComponent } from './composant/footer/footer.component';
+import { ListeComingSoonSerieComponent } from './composant/liste-coming-soon-serie/liste-coming-soon-serie.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,9 @@ import { ListeComingSoonFilmComponent } from './composant/liste-coming-soon-film
     SerieComponent,
     ListMostPopularFilmComponent,
     ListMostPopularSerieComponent,
-    ListeComingSoonFilmComponent
+    ListeComingSoonFilmComponent,
+    FooterComponent,
+    ListeComingSoonSerieComponent
   ],
 
   imports: [
