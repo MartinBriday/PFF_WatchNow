@@ -1,37 +1,28 @@
-<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-<div class="row">
-  <div class="col-4">
-    <div>
-      <img class="d-block w-100" src="https://ag-spots-2017.o.auroraobjects.eu/2017/05/11/bmw-m5-e61-touring-c713011052017142604_1.jpg" alt="First slide">
-    </div>
-  </div>
-  <div class="col-4">
-    <div>
-      <img class="d-block w-100" src="https://res.cloudinary.com/dsxfn6o4q/image/upload/c_fill,g_center,h_467,w_624/v1595149689/spjefp0ha3kf8fz6udx7.jpg" alt="Second slide">
-    </div>
-  </div>
-  <div class="col-4">
-    <div>
-      <img class="d-block w-100" src="https://files.porsche.com/filestore/image/multimedia/none/rd-2014-porscheclassic-models-996-9964-banner/normal/a1c50e09-f4f6-11eb-80db-005056bbdc38/porsche-normal.jpg" alt="Third slide">
-    </div>
-  </div>
+<!-- <div>
+  <owl-carousel-o [options]="customOptions" >
+    <ng-template carouselSlide class="carouselSlide" *ngFor="let l of listMostPopularFilm$ | async">
+      <button ><img class="carouselImage" [src]="l.image.url"></button>
+    </ng-template>
+  </owl-carousel-o>
+</div> -->
+<app-nav-bar></app-nav-bar>
+<h1>Action movies</h1>
+<div>
+  <owl-carousel-o [options]="customOptions">
+    <ng-template carouselSlide class="carouselSlide" *ngFor="let l of listMostPopularFilmByGenreAction$ | async">
+      <button ><img class="carouselImage" [src]="l.image.url"></button>
+    </ng-template>
+  </owl-carousel-o>
 </div>
+
+<h1>Horror movies</h1>
+<div>
+  <owl-carousel-o [options]="customOptions">
+    <ng-template carouselSlide class="carouselSlide" *ngFor="let l of listMostPopularFilmByGenreHorror$ | async">
+      <button ><img class="carouselImage" [src]="l.image.url"></button>
+    </ng-template>
+  </owl-carousel-o>
 </div>
-<div class="row">
-  <div class="col-4">
-    <div>
-      <img class="d-block w-100" src="https://ag-spots-2017.o.auroraobjects.eu/2017/05/11/bmw-m5-e61-touring-c713011052017142604_1.jpg" alt="First slide">
-    </div>
-  </div>
-  <div class="col-4">
-    <div>
-      <img class="d-block w-100" src="https://res.cloudinary.com/dsxfn6o4q/image/upload/c_fill,g_center,h_467,w_624/v1595149689/spjefp0ha3kf8fz6udx7.jpg" alt="Second slide">
-    </div>
-  </div>
-  <div class="col-4">
-    <div>
-      <img class="d-block w-100" src="https://files.porsche.com/filestore/image/multimedia/none/rd-2014-porscheclassic-models-996-9964-banner/normal/a1c50e09-f4f6-11eb-80db-005056bbdc38/porsche-normal.jpg" alt="Third slide">
-    </div>
-  </div>
-</div>
+
+
+
