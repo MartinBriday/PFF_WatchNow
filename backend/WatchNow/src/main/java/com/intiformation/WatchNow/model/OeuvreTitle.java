@@ -52,12 +52,18 @@ public class OeuvreTitle {
 		this.runningTimeInMinutes = runningTimeInMinutes;
 	}
 	public String getNextEpisode() {
+		if (nextEpisode == null) {
+			return nextEpisode;
+		}
 		return nextEpisode.split("/")[id.split("/").length-1];
 	}
 	public void setNextEpisode(String nextEpisode) {
 		this.nextEpisode = nextEpisode;
 	}
 	public String getPreviousEpisode() {
+		if (previousEpisode == null) {
+			return previousEpisode;
+		}
 		return previousEpisode.split("/")[id.split("/").length-1];
 	}
 	public void setPreviousEpisode(String previousEpisode) {

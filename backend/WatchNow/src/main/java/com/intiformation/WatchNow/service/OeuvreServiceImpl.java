@@ -10,7 +10,6 @@ import com.intiformation.WatchNow.model.Film;
 import com.intiformation.WatchNow.model.Oeuvre;
 import com.intiformation.WatchNow.model.OeuvreBuffer;
 import com.intiformation.WatchNow.model.OeuvreBufferResult;
-import com.intiformation.WatchNow.model.Saison;
 import com.intiformation.WatchNow.model.Serie;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,8 +40,8 @@ public class OeuvreServiceImpl implements OeuvreService {
 		    .header("X-RapidAPI-Key", rapidAPI_key)
 		    .asObject(Oeuvre.class)
             .getBody();
-		resultRequest.setSynopsis(synopsisService.getByTitleID(id));
-		resultRequest.setTrailer(trailerService.getTrailerUrlbyId(id));
+//		resultRequest.setSynopsis(synopsisService.getByTitleID(id));
+//		resultRequest.setTrailer(trailerService.getTrailerUrlbyId(id));
 		
 		if (resultRequest.getType().equals("movie")) {
 			Film resultFilm = new Film(resultRequest);
