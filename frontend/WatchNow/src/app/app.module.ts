@@ -58,7 +58,7 @@ import { ListeComingSoonSerieComponent } from './composant/liste-coming-soon-ser
     SerieComponent,
     ListMostPopularFilmComponent,
     ListMostPopularSerieComponent,
-    SynopsisComponent
+    SynopsisComponent,
     ListeComingSoonFilmComponent,
     FooterComponent,
     ListeComingSoonSerieComponent

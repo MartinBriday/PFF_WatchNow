@@ -1,12 +1,12 @@
 <p>Synopsis working</p>
 
 <div class="container">
-  <div *ngIf="film$ | async as f">
-    <p>{{f.synopsis.text}}</p>
+  <div *ngIf="synopsis$ | async as s">
+    <p>{{s.text}}</p>
   </div>
-  <div *ngIf="film$ | async as f">
+  <div *ngIf="trailer$ | async as t">
     <h3>Regardez le trailer sur Youtube</h3>
-    <a href="{{f.trailer.trailerUrl}}">Youtube</a>
+    <a href="{{t.trailerUrl}}">Youtube</a>
   </div>
 </div>
 
