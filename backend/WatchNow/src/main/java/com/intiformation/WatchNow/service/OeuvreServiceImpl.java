@@ -1,5 +1,6 @@
 package com.intiformation.WatchNow.service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -240,5 +241,52 @@ public class OeuvreServiceImpl implements OeuvreService {
 	public List<Oeuvre> getByKeyword(String keyword, Integer nbResults) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	@Override
+	public List<Oeuvre> getByRecentReleaseDate()
+	{
+		String _requestURL_type = null;
+		List<Oeuvre> listOeuvreId = new ArrayList<Oeuvre>();
+		// LocalDate prochainMois = LocalDate.now().minusMonths(1);
+		
+		
+		listOeuvreId = Unirest.get(requestURL_OMD + "title/get-coming-soon-movies?currentCountry=US&purchaseCountry=US&homeCountry=US")
+				.header("X-RapidAPI-Key", rapidAPI_key)
+				.header("X-RapidAPI-Host", "online-movie-database.p.rapidapi.com")
+				.asObject(new GenericType<List<Oeuvre>>(){})
+				.getBody();
+		
+		List<Oeuvre> listOeuvre = new ArrayList<Oeuvre>();
+		String _id;
+		for (Oeuvre oeuvre : listOeuvreId)
+		{
+			_id = oeuvre.getId().split("/")[oeuvre.getId().split("/").length-1];
+			listOeuvre.add(getById(_id));
+		} 
+		return listOeuvre;
+	}
+
+	@Override
+	public List<Oeuvre> getByRecentReleaseDate(Integer nbResults)
+	{
+		String _requestURL_type = null;
+		List<Oeuvre> listOeuvreId = new ArrayList<Oeuvre>();
+		// LocalDate prochainMois = LocalDate.now().minusMonths(1);
+		
+		
+		listOeuvreId = Unirest.get(requestURL_OMD + "title/get-coming-soon-movies?currentCountry=US&purchaseCountry=US&homeCountry=US")
+				.header("X-RapidAPI-Key", rapidAPI_key)
+				.header("X-RapidAPI-Host", "online-movie-database.p.rapidapi.com")
+				.asObject(new GenericType<List<Oeuvre>>(){})
+				.getBody();
+		
+		List<Oeuvre> listOeuvre = new ArrayList<Oeuvre>();
+		String _id;
+		for (int ii = 0; ii < nbResults; ii++) {
+			_id = listOeuvreId.get(ii).getId().split("/")[listOeuvreId.get(ii).getId().split("/").length-1];
+			listOeuvre.add(getById(_id));
+		}
+		return listOeuvre;
 	}
 }
