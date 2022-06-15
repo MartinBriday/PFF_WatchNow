@@ -1,5 +1,6 @@
 package com.intiformation.WatchNow.service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +10,6 @@ import com.intiformation.WatchNow.model.Film;
 import com.intiformation.WatchNow.model.Oeuvre;
 import com.intiformation.WatchNow.model.OeuvreBuffer;
 import com.intiformation.WatchNow.model.OeuvreBufferResult;
-import com.intiformation.WatchNow.model.OeuvreResultObject;
 import com.intiformation.WatchNow.model.Saison;
 import com.intiformation.WatchNow.model.Serie;
 
@@ -57,7 +57,7 @@ public class OeuvreServiceImpl implements OeuvreService {
 			Episode resultEpisode = new Episode(resultRequest);
 			return resultEpisode;
 		}
-		return null;
+		return resultRequest;
 	}
 
 	@Override
@@ -70,7 +70,7 @@ public class OeuvreServiceImpl implements OeuvreService {
 		    .asObject(OeuvreBufferResult.class)
             .getBody();
 		for (OeuvreBuffer _ob : resultRequest.getSearch()) {
-			listOeuvre.add(getById(_ob.getID()));
+			listOeuvre.add(getById(_ob.getId_MDBList()));
 		}
 		return listOeuvre;
 	}
@@ -86,7 +86,7 @@ public class OeuvreServiceImpl implements OeuvreService {
 		    .asObject(OeuvreBufferResult.class)
             .getBody();
 		for (int ii = 0; ii < nbResults; ii++) {
-			listOeuvre.add(getById(resultRequest.getSearch().get(ii).getID()));
+			listOeuvre.add(getById(resultRequest.getSearch().get(ii).getId_MDBList()));
 		}
 		return listOeuvre;
 	}
@@ -96,13 +96,13 @@ public class OeuvreServiceImpl implements OeuvreService {
 		String _requestURL_type = null;
 		List<Oeuvre> listOeuvre = new ArrayList<Oeuvre>();
 		if (type.equals("film")) {
-			_requestURL_type = "title/get-most-popular-movies?currentCountry=US&purchaseCountry=US&homeCountry=US";
+			_requestURL_type = "title/get-most-popular-movies";
 		}
 		else if (type.equals("serie")) {
-			_requestURL_type = "title/get-most-popular-tv-shows?currentCountry=US&purchaseCountry=US&homeCountry=US";
+			_requestURL_type = "title/get-most-popular-tv-shows";
 		}
 		List<String> listOeuvreId = null;
-		listOeuvreId = Unirest.get(requestURL_OMD + _requestURL_type)
+		listOeuvreId = Unirest.get(requestURL_OMD + _requestURL_type + "?currentCountry=US&purchaseCountry=US&homeCountry=US")
 				.header("X-RapidAPI-Key", rapidAPI_key)
 				.header("X-RapidAPI-Host", "online-movie-database.p.rapidapi.com")
 			    .asObject(new GenericType<List<String>>(){})
@@ -120,13 +120,13 @@ public class OeuvreServiceImpl implements OeuvreService {
 		String _requestURL_type = null;
 		List<Oeuvre> listOeuvre = new ArrayList<Oeuvre>();
 		if (type.equals("film")) {
-			_requestURL_type = "title/get-most-popular-movies?currentCountry=US&purchaseCountry=US&homeCountry=US";
+			_requestURL_type = "title/get-most-popular-movies";
 		}
 		else if (type.equals("serie")) {
-			_requestURL_type = "title/get-most-popular-tv-shows?currentCountry=US&purchaseCountry=US&homeCountry=US";
+			_requestURL_type = "title/get-most-popular-tv-shows";
 		}
 		List<String> listOeuvreId = null;
-		listOeuvreId = Unirest.get(requestURL_OMD + _requestURL_type)
+		listOeuvreId = Unirest.get(requestURL_OMD + _requestURL_type + "?currentCountry=US&purchaseCountry=US&homeCountry=US")
 				.header("X-RapidAPI-Key", rapidAPI_key)
 				.header("X-RapidAPI-Host", "online-movie-database.p.rapidapi.com")
 			    .asObject(new GenericType<List<String>>(){})
@@ -224,21 +224,86 @@ public class OeuvreServiceImpl implements OeuvreService {
 	@Override
 	public List<Oeuvre> getByKeyword(String keyword) {
 		List<Oeuvre> listOeuvre = new ArrayList<Oeuvre>();
-//		List<String> resultRequest = null;
-//		resultRequest = Unirest.get(requestURL_mdblist + "?s=" + titre)
-//			.header("X-RapidAPI-Key", rapidAPI_key)
-//			.header("X-RapidAPI-Host", "mdblist.p.rapidapi.com")
-//		    .asObject(OeuvreBufferResult.class)
-//            .getBody();
-//		for (OeuvreBuffer _ob : resultRequest.getSearch()) {
-//			listOeuvre.add(getById(_ob.getID()));
-//		}
+		OeuvreBufferResult resultRequest = null;
+		resultRequest = Unirest.get(requestURL_OMD + "auto-complete?q=" + keyword)
+			.header("X-RapidAPI-Key", rapidAPI_key)
+			.header("X-RapidAPI-Host", "online-movie-database.p.rapidapi.com")
+		    .asObject(OeuvreBufferResult.class)
+            .getBody();
+		for (OeuvreBuffer _ob : resultRequest.getD()) {
+			listOeuvre.add(getById(_ob.getId_OMD()));
+		}
 		return listOeuvre;
 	}
 
 	@Override
 	public List<Oeuvre> getByKeyword(String keyword, Integer nbResults) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Oeuvre> listOeuvre = new ArrayList<Oeuvre>();
+		OeuvreBufferResult resultRequest = null;
+		resultRequest = Unirest.get(requestURL_OMD + "auto-complete?q=" + keyword)
+			.header("X-RapidAPI-Key", rapidAPI_key)
+			.header("X-RapidAPI-Host", "online-movie-database.p.rapidapi.com")
+		    .asObject(OeuvreBufferResult.class)
+            .getBody();
+		for (int ii = 0; ii < nbResults; ii++) {
+			listOeuvre.add(getById(resultRequest.getD().get(ii).getId_OMD()));
+		}
+		return listOeuvre;
+	}
+	
+	@Override
+	public List<Oeuvre> getComingSoonByType(String type)
+	{
+		String _requestURL_type = null;
+		List<Oeuvre> listOeuvreId = new ArrayList<Oeuvre>();
+		LocalDate today = LocalDate.now();
+		
+		if (type.equals("film")) {
+			_requestURL_type = "title/get-coming-soon-movies";
+		}
+		else if (type.equals("serie")) {
+			_requestURL_type = "title/get-coming-soon-tv-shows";
+		}
+		listOeuvreId = Unirest.get(requestURL_OMD + _requestURL_type + "?currentCountry=US&today=" + today)
+				.header("X-RapidAPI-Key", rapidAPI_key)
+				.header("X-RapidAPI-Host", "online-movie-database.p.rapidapi.com")
+				.asObject(new GenericType<List<Oeuvre>>(){})
+				.getBody();
+		
+		List<Oeuvre> listOeuvre = new ArrayList<Oeuvre>();
+		
+		for (Oeuvre oeuvre : listOeuvreId)
+		{
+			listOeuvre.add(getById(oeuvre.getId()));
+		} 
+		return listOeuvre;
+	}
+
+	@Override
+	public List<Oeuvre> getComingSoonByType(String type, Integer nbResults)
+	{
+		String _requestURL_type = null;
+		List<Oeuvre> listOeuvreId = new ArrayList<Oeuvre>();
+		LocalDate today = LocalDate.now();
+		
+		if (type.equals("film")) {
+			_requestURL_type = "title/get-coming-soon-movies";
+		}
+		else if (type.equals("serie")) {
+			_requestURL_type = "title/get-coming-soon-tv-shows";
+		}
+		
+		listOeuvreId = Unirest.get(requestURL_OMD + _requestURL_type + "?currentCountry=US&today=" + today)
+				.header("X-RapidAPI-Key", rapidAPI_key)
+				.header("X-RapidAPI-Host", "online-movie-database.p.rapidapi.com")
+				.asObject(new GenericType<List<Oeuvre>>(){})
+				.getBody();
+		
+		List<Oeuvre> listOeuvre = new ArrayList<Oeuvre>();
+		
+		for (int ii = 0; ii < nbResults; ii++) {
+			listOeuvre.add(getById(listOeuvreId.get(ii).getId()));
+		}
+		return listOeuvre;
 	}
 }

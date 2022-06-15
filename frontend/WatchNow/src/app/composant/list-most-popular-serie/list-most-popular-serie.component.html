@@ -1,0 +1,10 @@
+<h1>SERIE POPULAIRE</h1>
+
+  <div>
+  <owl-carousel-o [options]="customOptions" >
+    <ng-template carouselSlide class="carouselSlide" *ngFor="let l of listMostPopularSerie$ | async">
+      <button ><img class="carouselImage" [src]="l.image.url"></button>
+    </ng-template>
+  </owl-carousel-o>
+</div>
+

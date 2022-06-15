@@ -64,4 +64,22 @@ public class OeuvreController {
 		}
 		return new ResponseEntity<List<Oeuvre>>(oeuvreService.getMostPopularByTypeAndGenre(type, genre), HttpStatus.OK);
 	}
+	
+	@GetMapping("/index/keyword/{keyword}")
+	public ResponseEntity<List<Oeuvre>> getByKeyword(@PathVariable String keyword, 
+			@RequestParam(name = "nbResults", required = false) Integer nbResults) {
+		if (nbResults != null && nbResults > 0) {
+			return new ResponseEntity<List<Oeuvre>>(oeuvreService.getByKeyword(keyword, nbResults), HttpStatus.OK);
+		}
+		return new ResponseEntity<List<Oeuvre>>(oeuvreService.getByKeyword(keyword), HttpStatus.OK);
+	}
+	
+	@GetMapping("/index/coming_soon/type/{type}")
+	public ResponseEntity<List<Oeuvre>> getComingSoonByType(@PathVariable String type, 
+			@RequestParam(name = "nbResults", required = false) Integer nbResults) {
+		if (nbResults != null && nbResults > 0) {
+			return new ResponseEntity<List<Oeuvre>>(oeuvreService.getComingSoonByType(type, nbResults), HttpStatus.OK);
+		}
+		return new ResponseEntity<List<Oeuvre>>(oeuvreService.getComingSoonByType(type), HttpStatus.OK);
+	}
 }
