@@ -13,4 +13,8 @@ export class SerieService {
   getMostPopularSerie():Observable<Serie[]> {
     return this.httpCLient.get<Serie[]>(environment.url + "oeuvre/index/type/serie?nbResults=8")
   }
+
+  getComingSoonSerie():Observable<Serie[]> {
+    return this.httpCLient.get<Serie[]>(environment.url + "oeuvre/index/coming_soon/type/serie?nbResults=8")
+  }
 }
