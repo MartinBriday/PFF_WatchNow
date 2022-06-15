@@ -1,0 +1,5 @@
+
+<div *ngIf="film$ | async as f">
+  <p>{{f.synopsis.text}}</p>
+</div>
+<router-outlet></router-outlet>

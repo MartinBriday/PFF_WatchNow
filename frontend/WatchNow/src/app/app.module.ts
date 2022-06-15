@@ -29,6 +29,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ListMostPopularFilmComponent } from './composant/list-most-popular-film/list-most-popular-film.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ListMostPopularSerieComponent } from './composant/list-most-popular-serie/list-most-popular-serie.component';
+import { SynopsisComponent } from './composant/synopsis/synopsis.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { ListMostPopularSerieComponent } from './composant/list-most-popular-ser
     RechercheAvanceeComponent,
     SerieComponent,
     ListMostPopularFilmComponent,
-    ListMostPopularSerieComponent
+    ListMostPopularSerieComponent,
+    SynopsisComponent
   ],
 
   imports: [
