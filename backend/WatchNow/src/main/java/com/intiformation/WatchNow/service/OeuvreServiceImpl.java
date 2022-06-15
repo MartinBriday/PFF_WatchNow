@@ -96,13 +96,13 @@ public class OeuvreServiceImpl implements OeuvreService {
 		String _requestURL_type = null;
 		List<Oeuvre> listOeuvre = new ArrayList<Oeuvre>();
 		if (type.equals("film")) {
-			_requestURL_type = "title/get-most-popular-movies?currentCountry=US&purchaseCountry=US&homeCountry=US";
+			_requestURL_type = "title/get-most-popular-movies";
 		}
 		else if (type.equals("serie")) {
-			_requestURL_type = "title/get-most-popular-tv-shows?currentCountry=US&purchaseCountry=US&homeCountry=US";
+			_requestURL_type = "title/get-most-popular-tv-shows";
 		}
 		List<String> listOeuvreId = null;
-		listOeuvreId = Unirest.get(requestURL_OMD + _requestURL_type)
+		listOeuvreId = Unirest.get(requestURL_OMD + _requestURL_type + "?currentCountry=US&purchaseCountry=US&homeCountry=US")
 				.header("X-RapidAPI-Key", rapidAPI_key)
 				.header("X-RapidAPI-Host", "online-movie-database.p.rapidapi.com")
 			    .asObject(new GenericType<List<String>>(){})
@@ -120,13 +120,13 @@ public class OeuvreServiceImpl implements OeuvreService {
 		String _requestURL_type = null;
 		List<Oeuvre> listOeuvre = new ArrayList<Oeuvre>();
 		if (type.equals("film")) {
-			_requestURL_type = "title/get-most-popular-movies?currentCountry=US&purchaseCountry=US&homeCountry=US";
+			_requestURL_type = "title/get-most-popular-movies";
 		}
 		else if (type.equals("serie")) {
-			_requestURL_type = "title/get-most-popular-tv-shows?currentCountry=US&purchaseCountry=US&homeCountry=US";
+			_requestURL_type = "title/get-most-popular-tv-shows";
 		}
 		List<String> listOeuvreId = null;
-		listOeuvreId = Unirest.get(requestURL_OMD + _requestURL_type)
+		listOeuvreId = Unirest.get(requestURL_OMD + _requestURL_type + "?currentCountry=US&purchaseCountry=US&homeCountry=US")
 				.header("X-RapidAPI-Key", rapidAPI_key)
 				.header("X-RapidAPI-Host", "online-movie-database.p.rapidapi.com")
 			    .asObject(new GenericType<List<String>>(){})
@@ -252,48 +252,57 @@ public class OeuvreServiceImpl implements OeuvreService {
 	}
 	
 	@Override
-	public List<Oeuvre> getByRecentReleaseDate()
+	public List<Oeuvre> getComingSoonByType(String type)
 	{
 		String _requestURL_type = null;
 		List<Oeuvre> listOeuvreId = new ArrayList<Oeuvre>();
-		// LocalDate prochainMois = LocalDate.now().minusMonths(1);
+		LocalDate today = LocalDate.now();
 		
-		
-		listOeuvreId = Unirest.get(requestURL_OMD + "title/get-coming-soon-movies?currentCountry=US&purchaseCountry=US&homeCountry=US")
+		if (type.equals("film")) {
+			_requestURL_type = "title/get-coming-soon-movies";
+		}
+		else if (type.equals("serie")) {
+			_requestURL_type = "title/get-coming-soon-tv-shows";
+		}
+		listOeuvreId = Unirest.get(requestURL_OMD + _requestURL_type + "?currentCountry=US&today=" + today)
 				.header("X-RapidAPI-Key", rapidAPI_key)
 				.header("X-RapidAPI-Host", "online-movie-database.p.rapidapi.com")
 				.asObject(new GenericType<List<Oeuvre>>(){})
 				.getBody();
 		
 		List<Oeuvre> listOeuvre = new ArrayList<Oeuvre>();
-		String _id;
+		
 		for (Oeuvre oeuvre : listOeuvreId)
 		{
-			_id = oeuvre.getId().split("/")[oeuvre.getId().split("/").length-1];
-			listOeuvre.add(getById(_id));
+			listOeuvre.add(getById(oeuvre.getId()));
 		} 
 		return listOeuvre;
 	}
 
 	@Override
-	public List<Oeuvre> getByRecentReleaseDate(Integer nbResults)
+	public List<Oeuvre> getComingSoonByType(String type, Integer nbResults)
 	{
 		String _requestURL_type = null;
 		List<Oeuvre> listOeuvreId = new ArrayList<Oeuvre>();
-		// LocalDate prochainMois = LocalDate.now().minusMonths(1);
+		LocalDate today = LocalDate.now();
 		
+		if (type.equals("film")) {
+			_requestURL_type = "title/get-coming-soon-movies";
+		}
+		else if (type.equals("serie")) {
+			_requestURL_type = "title/get-coming-soon-tv-shows";
+		}
 		
-		listOeuvreId = Unirest.get(requestURL_OMD + "title/get-coming-soon-movies?currentCountry=US&purchaseCountry=US&homeCountry=US")
+		listOeuvreId = Unirest.get(requestURL_OMD + _requestURL_type + "?currentCountry=US&today=" + today)
 				.header("X-RapidAPI-Key", rapidAPI_key)
 				.header("X-RapidAPI-Host", "online-movie-database.p.rapidapi.com")
 				.asObject(new GenericType<List<Oeuvre>>(){})
 				.getBody();
 		
 		List<Oeuvre> listOeuvre = new ArrayList<Oeuvre>();
-		String _id;
+		
 		for (int ii = 0; ii < nbResults; ii++) {
-			_id = listOeuvreId.get(ii).getId().split("/")[listOeuvreId.get(ii).getId().split("/").length-1];
-			listOeuvre.add(getById(_id));
+			listOeuvre.add(getById(listOeuvreId.get(ii).getId()));
 		}
 		return listOeuvre;
 	}

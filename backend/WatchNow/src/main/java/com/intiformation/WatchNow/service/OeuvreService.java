@@ -18,6 +18,6 @@ public interface OeuvreService {
 	List<Oeuvre> getMoreLikeThis(String id, Integer nbResults);
 	List<Oeuvre> getByKeyword(String keyword);
 	List<Oeuvre> getByKeyword(String keyword, Integer nbResults);
-	List<Oeuvre> getByRecentReleaseDate();
-	List<Oeuvre> getByRecentReleaseDate(Integer nbResults);
+	List<Oeuvre> getComingSoonByType(String type);
+	List<Oeuvre> getComingSoonByType(String type, Integer nbResults);
 }
