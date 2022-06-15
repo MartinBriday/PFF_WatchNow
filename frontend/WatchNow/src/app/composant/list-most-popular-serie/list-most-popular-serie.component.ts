@@ -40,10 +40,10 @@ export class ListMostPopularSerieComponent implements OnInit {
   }
   constructor(private serieService: SerieService, private router: Router) { }
 
-  listMostPopularFilm$!: Observable<Serie[]>
+  listMostPopularSerie$!: Observable<Serie[]>
 
   ngOnInit(): void {
-    this.listMostPopularFilm$ = this.serieService.getMostPopularSerie();
+    this.listMostPopularSerie$ = this.serieService.getMostPopularSerie();
 
   }
 

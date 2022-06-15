@@ -2,20 +2,9 @@
 
   <div>
   <owl-carousel-o [options]="customOptions" >
-    <ng-template carouselSlide class="carouselSlide" *ngFor="let l of listMostPopularFilm$ | async">
+    <ng-template carouselSlide class="carouselSlide" *ngFor="let l of listMostPopularSerie$ | async">
       <button ><img class="carouselImage" [src]="l.image.url"></button>
     </ng-template>
-    <!-- <ng-template carouselSlide class="carouselSlide">
-      <button ><img [src]="l.image.url"></button>
-    </ng-template> -->
-    <!-- <ng-template carouselSlide class="carouselSlide">
-      <img src="https://occ-0-243-299.1.nflxso.net/dnm/api/v5/rendition/412e4119fb212e3ca9f1add558e2e7fed42f8fb4/AAAABQCoK53qihwVPLRxPEDX98nyYpGbxgi5cc0ZOM4iHQu7KQvtgNyaNM5PsgI0vy5g3rLPZdjGCFr1EggrCPXpL77p2H08jV0tNEmIfs_e8KUfvBJ6Ay5nM4UM1dl-58xA6t1swmautOM.webp"
-      alt="Describe Image">
-    </ng-template> -->
-
   </owl-carousel-o>
 </div>
-  <!-- <div>Some tags after</div>
-  <button class="switchLeft sliderButton" (click)="sliderScrollLeft()"><</button>
-  <button class="switchRight sliderButton" (click)="sliderScrollRight()">></button> -->
 
