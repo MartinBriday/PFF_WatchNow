@@ -11,6 +11,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
   styleUrls: ['./list-most-popular-film.component.css']
 })
 export class ListMostPopularFilmComponent implements OnInit {
+  id!:string
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,
@@ -41,12 +42,16 @@ export class ListMostPopularFilmComponent implements OnInit {
   constructor(private filmService: FilmService, private router: Router) { }
 
   listMostPopularFilm$!: Observable<Film[]>
-
+  film$!: Observable<Film>
   ngOnInit(): void {
     this.listMostPopularFilm$ = this.filmService.getMostPopularFilm();
 
   }
+  ngOnDiplay(id:string)
+  {
 
+    this.router.navigateByUrl("/film/" + id)
+  }
   // getMostPopularFilm():Observable<Film[]> {
   //   return
   // }
