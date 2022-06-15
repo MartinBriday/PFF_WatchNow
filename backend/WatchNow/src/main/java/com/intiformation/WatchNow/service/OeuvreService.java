@@ -1,5 +1,6 @@
 package com.intiformation.WatchNow.service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import com.intiformation.WatchNow.model.Oeuvre;
@@ -17,4 +18,6 @@ public interface OeuvreService {
 	List<Oeuvre> getMoreLikeThis(String id, Integer nbResults);
 	List<Oeuvre> getByKeyword(String keyword);
 	List<Oeuvre> getByKeyword(String keyword, Integer nbResults);
+	List<Oeuvre> getComingSoonByType(String type);
+	List<Oeuvre> getComingSoonByType(String type, Integer nbResults);
 }

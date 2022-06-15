@@ -73,4 +73,13 @@ public class OeuvreController {
 		}
 		return new ResponseEntity<List<Oeuvre>>(oeuvreService.getByKeyword(keyword), HttpStatus.OK);
 	}
+	
+	@GetMapping("/index/coming_soon/type/{type}")
+	public ResponseEntity<List<Oeuvre>> getComingSoonByType(@PathVariable String type, 
+			@RequestParam(name = "nbResults", required = false) Integer nbResults) {
+		if (nbResults != null && nbResults > 0) {
+			return new ResponseEntity<List<Oeuvre>>(oeuvreService.getComingSoonByType(type, nbResults), HttpStatus.OK);
+		}
+		return new ResponseEntity<List<Oeuvre>>(oeuvreService.getComingSoonByType(type), HttpStatus.OK);
+	}
 }
