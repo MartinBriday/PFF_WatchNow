@@ -1,6 +1,6 @@
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Film } from 'src/app/model/film.model';
-import { Observable } from 'rxjs';
+import { delay, Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { FilmService } from './../../service/film.service';
 import { Component, OnInit } from '@angular/core';
@@ -40,12 +40,22 @@ export class CategorieFilmComponent implements OnInit {
   }
   constructor(private filmService: FilmService, private router: Router) { }
 
-  listMostPopularFilmByGenreAction$!: Observable<Film[]>
-  listMostPopularFilmByGenreHorror$!: Observable<Film[]>
+  listMostPopularFilmByGenreAction$!: Observable<Film[]>;
+  listMostPopularFilmByGenreHorror$!: Observable<Film[]>;
+  listMostPopularFilmByGenreCrime$!: Observable<Film[]>;
+  listMostPopularFilmByGenreAnimation$!: Observable<Film[]>;
 
   ngOnInit(): void {
     this.listMostPopularFilmByGenreAction$ = this.filmService.getMostPopularFilmByGenreAction();
-    this.listMostPopularFilmByGenreHorror$ = this.filmService.getMostPopularFilmByGenreHorror();
+
+    // setTimeout(function(){
+    //   console.log("Ready");
+    //   this.listMostPopularFilmByGenreAction$ = this.filmService.getMostPopularFilmByGenreAction();
+    //   }, 5000);
+
+    // this.listMostPopularFilmByGenreHorror$ = this.filmService.getMostPopularFilmByGenreHorror();
+    // this.listMostPopularFilmByGenreCrime$ = this.filmService.getMostPopularFilmByGenreCrime();
+    // this.listMostPopularFilmByGenreAnimation$ = this.filmService.getMostPopularFilmByGenreAnimation();
   }
 
 }
