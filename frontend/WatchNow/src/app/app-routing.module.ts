@@ -14,7 +14,7 @@ import { EpisodeComponent } from './composant/episode/episode.component';
 
 const routes: Routes = [
   {path:"accueil", component: AccueilComponent},
-  {path:"form", component: FormInscriptionComponent},
+  {path:"inscription", component: FormInscriptionComponent},
   {path:"categorie-film", component: CategorieFilmComponent},
   {path:"recherche/:searchWord", component: ResultatRechercheComponent},
   {path:"film/:id", component: FilmComponent, children:[{path: "synopsis", component: SynopsisComponent}]},
