@@ -35,5 +35,12 @@ public class Personne {
     		joinColumns = @JoinColumn(name = "_idPersonne"),
     		inverseJoinColumns = @JoinColumn(name = "_idNationalite"))
     protected List<Nationalite> _listeNationalite;
+    
+    public Personne(Personne p) {
+    	this._idPersonne = p._idPersonne;
+    	this._nom = p._nom;
+    	this._prenom = p._prenom;
+    	this._dateNaissance = p._dateNaissance;
+    }
 
 }

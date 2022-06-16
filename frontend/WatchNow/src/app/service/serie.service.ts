@@ -1,8 +1,8 @@
+import { Serie } from 'src/app/model/serie.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Serie } from '../model/serie.model';
 
 @Injectable({
   providedIn: 'root'
@@ -21,5 +21,17 @@ export class SerieService {
   getOeuvreByIdSerie(id:string):Observable<Serie>
   {
     return this.httpCLient.get<Serie>(environment.url + "oeuvre/oeuvre/id/" + id)
+  }
+
+  getlistSeriesEnCours():Observable<Serie[]> {
+    return this.httpCLient.get<Serie[]>(environment.url + "")
+  }
+
+  getlistSeriesLater():Observable<Serie[]> {
+    return this.httpCLient.get<Serie[]>(environment.url + "")
+  }
+
+  getlistSeriesVu():Observable<Serie[]> {
+    return this.httpCLient.get<Serie[]>(environment.url + "")
   }
 }
