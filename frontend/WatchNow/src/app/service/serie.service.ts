@@ -18,6 +18,11 @@ export class SerieService {
     return this.httpCLient.get<Serie[]>(environment.url + "oeuvre/index/coming_soon/type/serie?nbResults=8")
   }
 
+  getOeuvreByIdSerie(id:string):Observable<Serie>
+  {
+    return this.httpCLient.get<Serie>(environment.url + "oeuvre/oeuvre/id/" + id)
+  }
+
   getlistSeriesEnCours():Observable<Serie[]> {
     return this.httpCLient.get<Serie[]>(environment.url + "")
   }
