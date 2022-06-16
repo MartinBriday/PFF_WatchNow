@@ -48,16 +48,22 @@ export class CategorieFilmComponent implements OnInit {
   // function():Observable<Film[]>{
   //  return this.listMostPopularFilmByGenreAction$ = this.filmService.getMostPopularFilmByGenreAction();
   // }
+
   ngOnInit(): void {
     this.listMostPopularFilmByGenreAction$ = this.filmService.getMostPopularFilmByGenreAction();
 
     // setTimeout(function(){
     //   console.log("Ready");
+    //   }, 5000);
+    this.listMostPopularFilmByGenreHorror$ = this.filmService.getMostPopularFilmByGenreHorror();
+    this.listMostPopularFilmByGenreCrime$ = this.filmService.getMostPopularFilmByGenreCrime();
+    this.listMostPopularFilmByGenreAnimation$ = this.filmService.getMostPopularFilmByGenreAnimation();
+
+
+    // setTimeout(function(){
+    //   console.log("Ready");
     //   this.listMostPopularFilmByGenreAction$ = this.filmService.getMostPopularFilmByGenreAction();
     //   }, 5000);
-
-    // this.listMostPopularFilmByGenreHorror$ = this.filmService.getMostPopularFilmByGenreHorror();
-    // this.listMostPopularFilmByGenreCrime$ = this.filmService.getMostPopularFilmByGenreCrime();
   }
 
 }
