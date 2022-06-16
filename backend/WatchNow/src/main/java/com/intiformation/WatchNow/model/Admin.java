@@ -18,4 +18,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Admin extends Utilisateur {
 
+	public Admin(Admin a) {
+		super(a);
+	}
 }

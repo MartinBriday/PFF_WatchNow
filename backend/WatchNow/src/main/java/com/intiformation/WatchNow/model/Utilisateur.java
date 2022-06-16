@@ -30,4 +30,10 @@ public class Utilisateur extends Personne {
     
     //ListFavoris et ListeOeuvresVues seront une joinTable
 
+    
+    public Utilisateur(Utilisateur u) {
+    	super(u);
+    	this._email = u._email;
+    	this._utilisateurLogin = u._utilisateurLogin;
+    }
 }

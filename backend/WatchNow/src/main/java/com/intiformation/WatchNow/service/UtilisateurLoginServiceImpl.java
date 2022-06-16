@@ -43,4 +43,9 @@ public class UtilisateurLoginServiceImpl implements UtilisateurLoginService
 	{
 		utilisateurLoginRepository.save(ul);
 	}
+
+	@Override
+	public UtilisateurLogin getByLoginOrEmail(String login) {
+		return utilisateurLoginRepository.findByLoginOrEmail(login);
+	}
 }
