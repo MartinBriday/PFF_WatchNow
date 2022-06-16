@@ -2,6 +2,7 @@ package com.intiformation.WatchNow.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -24,7 +25,7 @@ public class Utilisateur extends Personne {
     @OneToMany(mappedBy = "_utilisateur")
     private List<Avis> _listeAvis;
     
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "_idUtilisateurLogin")
     private UtilisateurLogin _utilisateurLogin;
     
