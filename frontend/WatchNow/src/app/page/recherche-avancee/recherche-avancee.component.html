@@ -1,1 +1,38 @@
-<p>recherche-avancee works!</p>
+<app-nav-bar></app-nav-bar>
+<br><br><br>
+
+<div class="card border-secondary mb-3" style="width: 80%;">
+    <div class="card-header">
+        <form>
+            <input type="text" [(ngModel)]="searchWord" name="searchWord" placeholder="Rechercher par mots-clés" id="inputRecherche"/>
+            <button class="btn btn-default" type="submit" (click)="searchThis()">
+                <img src="https://cdn-icons.flaticon.com/png/512/5817/premium/5817754.png?token=exp=1654875071~hmac=b61a96024b7bd8334954b0de880e9c5a"
+                    alt="" width="35" height="35" class="d-inline-block align-text-top">
+            </button>
+        </form>
+    </div>
+    <div class="card-body text-secondary" style="margin-left: 1%;">
+    
+      <h4 class="card-title" style="margin-top: 3%;">Recherche avancée</h4>
+      <form>
+        <div class="form-check">
+            <input type="checkbox" value="movie">Film
+            <input type="checkbox" value="tvSeries">Série
+          </div>
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Titre</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" >
+            </div>
+          </div>
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4">Rechercher</button>
+
+    </form>
+    </div>
+    </div>
+
+
+
+<app-footer></app-footer>

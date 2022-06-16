@@ -7,11 +7,13 @@ import { AccueilComponent } from './page/accueil/accueil.component';
 import { Erreur404Component } from './page/erreur404/erreur404.component';
 import { FilmComponent } from './page/film/film.component';
 import { ResultatRechercheComponent } from './page/resultat-recherche/resultat-recherche.component';
+import { RechercheAvanceeComponent } from './page/recherche-avancee/recherche-avancee.component';
 
 const routes: Routes = [
   {path:"accueil", component: AccueilComponent},
   {path:"categorie-film", component: CategorieFilmComponent},
   {path:"recherche/:searchWord", component: ResultatRechercheComponent},
+  {path:"rechercheAvancee", component: RechercheAvanceeComponent},
   {path:"film/:id", component: FilmComponent, children:[{path: "synopsis/:id", component: SynopsisComponent}]},
   {path : "**", component: Erreur404Component}
 ];
