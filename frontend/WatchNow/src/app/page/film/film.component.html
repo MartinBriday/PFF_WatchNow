@@ -8,38 +8,24 @@
 </head>
 
 <body>
+  <app-nav-bar></app-nav-bar>
 
-
-<div class="container" id="affichageFilm">
-  <div *ngIf="film$ | async as f">
+<div class="container" id="affichageFilm" *ngIf="film$ | async as f">
+  <div >
     <h1>{{f.titre}}</h1>
 
     <img src="{{f.image.url}}" id="PosterFilm">
   </div>
 
-  <!-- <div *ngIf="film$ | async as f" id="box">
-    <h2>date de sortie : {{f.releaseDate}}</h2>
-    <h3>Résumé</h3>
-    <p>{{f.plotSummary.text}}</p>
+  <div id="box">
+    <h2>{{f.releaseDate}}</h2>
+  </div>
 
-  </div> -->
+  <div>
+    <button routerLink="/film/{{f.id}}/synopsis/">Voir le synopsis complet</button>
+  </div>
 </div>
 
-
-
-<div class="container" *ngIf="film$ | async as f">
-  <button routerLink="/film/{{f.id}}/synopsis/{{f.id}}">Voir le synopsis complet</button>
-</div>
-
-
-  <!-- <div *ngIf="film$ | async as f">
-    <p>{{f.synopsis.text}}</p>
-  </div> -->
-
-  <!-- <div *ngIf="film$ | async as f">
-    <h3>Regardez le trailer sur Youtube</h3>
-    <a href="{{f.trailer.trailerUrl}}">Youtube</a>
-  </div> -->
 </body>
 
 </html>
