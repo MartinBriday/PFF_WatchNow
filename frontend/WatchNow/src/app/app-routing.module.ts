@@ -1,3 +1,4 @@
+import { MonCompteComponent } from './page/mon-compte/mon-compte.component';
 import { CategorieFilmComponent } from './page/categorie-film/categorie-film.component';
 import { NgModule } from '@angular/core';
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path:"categorie-film", component: CategorieFilmComponent},
   {path:"recherche/:searchWord", component: ResultatRechercheComponent},
   {path:"film/:id", component: FilmComponent, children:[{path: "synopsis/:id", component: SynopsisComponent}]},
+  {path:"mon_compte", component: MonCompteComponent},
   {path : "**", component: Erreur404Component}
 ];
 
