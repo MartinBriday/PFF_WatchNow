@@ -1,0 +1,6 @@
+<p>resultat-recherche works!</p>
+
+<div class="container">
+    <div *ngFor="let l of listeOeuvre$ | async"><img [src]="l.image.url" alt="">
+    </div>
+</div>

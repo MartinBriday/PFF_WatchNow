@@ -11,8 +11,6 @@ public class Oeuvre {
     protected OeuvreTitle title;
     protected OeuvreRatings ratings;
     protected OeuvrePlotSummary plotSummary;
-    protected Synopsis synopsis;
-    protected Trailer trailer;
 
 	public Oeuvre() {
     }
@@ -25,8 +23,6 @@ public class Oeuvre {
 		this.genres = o.genres;
 		this.releaseDate = o.releaseDate;
 		this.plotSummary = o.plotSummary;
-		this.synopsis = o.synopsis;
-		this.trailer = o.trailer;
 	}
 
 	public String getId() {
@@ -92,22 +88,6 @@ public class Oeuvre {
     public void setPlotSummary(OeuvrePlotSummary plotSummary) {
     	this.plotSummary = plotSummary;
     }
-
-	public Synopsis getSynopsis() {
-		return synopsis;
-	}
-
-	public void setSynopsis(Synopsis synopsis) {
-		this.synopsis = synopsis;
-	}
-
-	public Trailer getTrailer() {
-		return trailer;
-	}
-
-	public void setTrailer(Trailer trailer) {
-		this.trailer = trailer;
-	}
 
 	public OeuvreImage getImage() {
 		return this.title.getImage();

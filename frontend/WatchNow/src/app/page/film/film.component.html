@@ -13,40 +13,34 @@
 <div class="container" id="affichageFilm">
   <div *ngIf="film$ | async as f">
     <h1>{{f.titre}}</h1>
-    <h2>date de sortie : {{f.releaseDate}}</h2>
+
     <img src="{{f.image.url}}" id="PosterFilm">
-
-    <div *ngIf="!f.plotSummary.text; then thenBlock else elseBlock">null</div>
-    <ng-template #thenBlock>
-      <h3>Synopsis</h3>
-      <p>
-        {{f.plotSummary.text}}
-      </p></ng-template>
-    <ng-template #elseBlock>
-      Pas de résumé disponible
-    </ng-template>
-
-
-
-    <div *ngIf="!f.synopsis.text == null; then thenBlock else elseBlock"></div>
-    <ng-template #thenBlock>
-      <h3>Synopsis</h3>
-      <p>
-        {{f.synopsis.text}}
-      </p></ng-template>
-    <ng-template #elseBlock>
-      Pas de synopsis disponible
-    </ng-template>
-
-    <h3>Regardez le trailer sur Youtube</h3>
-
-
-    <a href="{{f.trailer.trailerUrl}}">Youtube</a>
-
-
   </div>
+
+  <!-- <div *ngIf="film$ | async as f" id="box">
+    <h2>date de sortie : {{f.releaseDate}}</h2>
+    <h3>Résumé</h3>
+    <p>{{f.plotSummary.text}}</p>
+
+  </div> -->
 </div>
+
+
+
+<div class="container" *ngIf="film$ | async as f">
+  <button routerLink="/film/{{f.id}}/synopsis/{{f.id}}">Voir le synopsis complet</button>
+</div>
+
+
+  <!-- <div *ngIf="film$ | async as f">
+    <p>{{f.synopsis.text}}</p>
+  </div> -->
+
+  <!-- <div *ngIf="film$ | async as f">
+    <h3>Regardez le trailer sur Youtube</h3>
+    <a href="{{f.trailer.trailerUrl}}">Youtube</a>
+  </div> -->
 </body>
 
 </html>
-
+<router-outlet></router-outlet>

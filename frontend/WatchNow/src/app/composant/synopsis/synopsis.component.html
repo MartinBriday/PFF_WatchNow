@@ -1,0 +1,13 @@
+<p>Synopsis working</p>
+
+<div class="container">
+  <div *ngIf="synopsis$ | async as s">
+    <p>{{s.text}}</p>
+  </div>
+  <div *ngIf="trailer$ | async as t">
+    <h3>Regardez le trailer sur Youtube</h3>
+    <a href="{{t.trailerUrl}}">Youtube</a>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

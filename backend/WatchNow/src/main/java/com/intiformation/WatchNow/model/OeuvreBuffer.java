@@ -7,6 +7,7 @@ public class OeuvreBuffer {
 	
 	//Online Movie Database
 	private String id;
+    protected OeuvreWatch waysToWatch;
 
 	public String getId_MDBList() {
 		return imdbid;
@@ -30,5 +31,13 @@ public class OeuvreBuffer {
 
 	public void setId_OMD(String id) {
 		this.id = id;
+	}
+
+	public OeuvreWatch getWaysToWatch() {
+		return waysToWatch;
+	}
+
+	public void setWaysToWatch(OeuvreWatch waysToWatch) {
+		this.waysToWatch = waysToWatch;
 	}
 }

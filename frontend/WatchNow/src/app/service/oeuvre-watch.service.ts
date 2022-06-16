@@ -2,17 +2,18 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
-import { Synopsis } from '../model/synopsis.model';
+import { OeuvreWatch } from '../model/oeuvre-watch.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SynopsisService {
+export class OeuvreWatchService {
 
   constructor(private httpCLient: HttpClient) { }
 
-  getSynopsisByOeuvreId(id:string):Observable<Synopsis>
+  getOeuvreWatchByOeuvreId(id:string):Observable<OeuvreWatch>
   {
-    return this.httpCLient.get<Synopsis>(environment.url + "synopsis/index/" + id)
+    return this.httpCLient.get<OeuvreWatch>(environment.url + "oeuvre_watch/index/" + id)
   }
 }
+
