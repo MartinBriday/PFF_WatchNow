@@ -1,1 +1,41 @@
-<p>episode works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Film</title>
+</head>
+
+<body>
+  <app-nav-bar></app-nav-bar>
+
+<div class="container" id="affichageFilm" *ngIf="episode$ | async as f">
+  <div >
+    <div class="row">
+      <div class="col-sm"><h1>Saison {{f.numeroSaison}}</h1></div>
+      <div class="col-sm"><h1>Episode : {{f.titre}}</h1></div>
+    </div>
+    <img src="{{f.image.url}}" id="PosterFilm">
+  </div>
+
+  <div class="container" id="box">
+    <div class="row">
+      <div class="col-sm"><h2>{{f.releaseDate}}</h2></div>
+      <div class="col-sm"><button (click)="ngOnSwitchEpisode(f.previousEpisodeId)">Previous episode</button></div>
+      <div class="col-sm"><button (click)="ngOnSwitchEpisode(f.nextEpisodeId)">Next episode</button></div>
+
+    </div>
+
+
+  </div>
+
+  <div>
+    <button routerLink="/film/{{f.id}}/synopsis/">Voir le synopsis complet</button>
+  </div>
+</div>
+
+</body>
+
+</html>
+<router-outlet></router-outlet>
