@@ -44,7 +44,6 @@ export class ListMostPopularSerieComponent implements OnInit {
 
   ngOnInit(): void {
     this.listMostPopularSerie$ = this.serieService.getMostPopularSerie();
-
   }
 
 }
