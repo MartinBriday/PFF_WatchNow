@@ -1,6 +1,14 @@
-<p>resultat-recherche works!</p>
+<app-nav-bar></app-nav-bar>
 
-<div class="container">
-    <div *ngFor="let l of listeOeuvre$ | async"><img [src]="l.image.url" alt="">
-    </div>
-</div>
+<br><br><br>
+<h2 class="text-center display-3">Résultats de la recherche</h2>
+<div>
+    <owl-carousel-o [options]="customOptions" >
+      <ng-template carouselSlide class="carouselSlide" *ngFor="let l of listeOeuvre$ | async">
+        <button (click)="ngOnDiplay(l)"><img class="carouselImage" [src]="l.image.url"></button>
+      </ng-template>
+    </owl-carousel-o>
+  </div>
+
+<app-footer></app-footer>
+<router-outlet></router-outlet>
