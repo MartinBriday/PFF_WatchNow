@@ -54,3 +54,9 @@ transform: scale(1.3);
   /* width: 360px;
   height: 640px; */
 }
+/* Pour les titres (h1) de pages (categorie-film et serie, mon_compte*/
+#titre_page {
+  text-align: center;
+  font-size: 300%;
+  font-weight: bold;
+}
