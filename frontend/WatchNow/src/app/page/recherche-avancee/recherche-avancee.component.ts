@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { OeuvreService } from 'src/app/service/oeuvre.service';
 
 @Component({
   selector: 'app-recherche-avancee',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RechercheAvanceeComponent implements OnInit {
 
-  constructor() { }
+  searchWord!: string
+
+
+  constructor(private oeuvreService:OeuvreService, private router:Router) { }
 
   ngOnInit(): void {
+  }
+
+  searchThis() {
+    this.router.navigateByUrl("/recherche/" + this.searchWord);
   }
 
 }

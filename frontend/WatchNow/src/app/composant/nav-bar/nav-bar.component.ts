@@ -9,10 +9,10 @@ import { OeuvreService } from 'src/app/service/oeuvre.service';
 })
 export class NavBarComponent implements OnInit {
 
-  searchWord: string = ""
+  searchWord!: string
 
 
-  constructor(private oeuvreService:OeuvreService, private router:Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private oeuvreService:OeuvreService, private router:Router) { }
 
   ngOnInit(): void {
   }
