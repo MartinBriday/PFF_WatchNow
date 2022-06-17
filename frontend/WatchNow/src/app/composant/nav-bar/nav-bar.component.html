@@ -30,8 +30,18 @@
                         alt="" width="35" height="35" class="d-inline-block align-text-top">
                 </button>
             </form>
-            <button type="button" class="btn btn-outline-light btn-rounded"
-                data-mdb-ripple-color="dark" routerLink="/connexion">Connexion</button>
+
+            <div *ngIf="!utilisateur$ then connexion else monCompte">
+            </div>
+            <ng-template #connexion>
+                <button type="button" class="btn btn-outline-light btn-rounded"
+            data-mdb-ripple-color="dark" routerLink="/login">Connexion</button>
+            </ng-template>
+            <ng-template #monCompte>
+                <button type="button" class="btn btn-outline-light btn-rounded"
+                data-mdb-ripple-color="dark" routerLink="/mon_compte">Mon Compte</button>
+            </ng-template>
+            
         </div>
     </div>
 </nav>
