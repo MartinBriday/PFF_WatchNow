@@ -13,12 +13,12 @@
 <div class="container" id="affichageFilm" *ngIf="episode$ | async as f">
   <div >
     <div class="row">
-      <div class="col-sm"><h1>Saison {{f.numeroSaison}}</h1></div>
-      <div class="col-sm"><h1>Episode : {{f.titre}}</h1></div>
+      <div class="col-sm"><h1 class="text-center display-3" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Saison {{f.numeroSaison}}</h1></div>
+      <div class="col-sm"><h1 class="text-center display-3" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Episode {{f.numero}} : {{f.titre}}</h1></div>
     </div>
     <img src="{{f.image.url}}" id="PosterFilm">
   </div>
-
+<br>
   <div class="container" id="box">
     <div class="row">
       <div class="col-sm"><h2>{{f.releaseDate}}</h2></div>
@@ -27,12 +27,16 @@
 
     </div>
 
+    <!-- <div *ngIf="watchOption$ | async as t">
+      <h3>Watch option</h3>
+
+      <div *ngFor="let x of t.optionGroups">
+        <div>{{x.diplayName}}</div>
+      </div>
+    </div> -->
 
   </div>
 
-  <div>
-    <button routerLink="/film/{{f.id}}/synopsis/">Voir le synopsis complet</button>
-  </div>
 </div>
 
 </body>
