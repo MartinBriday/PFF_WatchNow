@@ -1,1 +1,35 @@
-<p>form-inscription works!</p>
+<div class="container">
+  <div>
+    <h1>Formulaire d'inscription</h1>
+  </div>
+  <form [formGroup]="formUtilisateur" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="nom" class="form-label">Nom</label>
+      <input type="text" class="form-control" id="nom" formControlName="_nom">
+    </div>
+    <div class="mb-3">
+      <label for="prenom" class="form-label">Prenom</label>
+      <input type="text" class="form-control" id="prenom" formControlName="_prenom">
+    </div>
+    <div class="mb-3">
+      <label for="dateNaissance" class="form-label">Date de naissance</label>
+      <input type="date" class="form-control" id="dateNaissance" formControlName="_dateNaissance">
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="text" class="form-control" id="email" formControlName="_email">
+    </div>
+    <div class="mb-3">
+      <label for="login" class="form-label">Login</label>
+      <input type="text" class="form-control" id="login" [(ngModel)]="login" name="login" [ngModelOptions]="{standalone: true}">
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Mot de passe</label>
+      <input type="text" class="form-control" id="password" [(ngModel)]="password" name="password" [ngModelOptions]="{standalone: true}">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Envoyer</button>
+    <button type="reset" class="btn btn-secondary">Annuler</button>
+  </form>
+
+</div>

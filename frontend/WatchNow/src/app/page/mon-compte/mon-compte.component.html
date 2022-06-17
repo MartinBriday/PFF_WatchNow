@@ -1,1 +1,76 @@
-<p>mon-compte works!</p>
+<app-nav-bar></app-nav-bar>
+<h1 id="titre_page">Mon compte</h1>
+
+<div *ngIf="utilisateur$ | async as u">
+  <h1>Informations personnelles</h1>
+  <h2>Nom : {{u._nom}}</h2>
+  <h2>Prénom : {{u._prenom}}</h2>
+  <h2>E-mail : {{u._email}}</h2>
+</div>
+
+<div>
+  <h1>Series en cours</h1>
+  <div>
+    <owl-carousel-o [options]="customOptions">
+      <ng-template carouselSlide class="carouselSlide" *ngFor="let l of listSeriesEnCours$ | async">
+        <button ><img class="carouselImage" [src]="l.image.url"></button>
+      </ng-template>
+    </owl-carousel-o>
+  </div>
+</div>
+
+<div>
+  <h1>Films en cours</h1>
+  <div>
+    <owl-carousel-o [options]="customOptions">
+      <ng-template carouselSlide class="carouselSlide" *ngFor="let l of listFilmsEnCours$ | async">
+        <button ><img class="carouselImage" [src]="l.image.url"></button>
+      </ng-template>
+    </owl-carousel-o>
+  </div>
+</div>
+
+<div>
+  <h1>Series à regarder plus tard</h1>
+  <div>
+    <owl-carousel-o [options]="customOptions">
+      <ng-template carouselSlide class="carouselSlide" *ngFor="let l of listSeriesLater$ | async">
+        <button ><img class="carouselImage" [src]="l.image.url"></button>
+      </ng-template>
+    </owl-carousel-o>
+  </div>
+</div>
+
+<div>
+  <h1>Films à regarder plus tard</h1>
+  <div>
+    <owl-carousel-o [options]="customOptions">
+      <ng-template carouselSlide class="carouselSlide" *ngFor="let l of listFilmsLater$ | async">
+        <button ><img class="carouselImage" [src]="l.image.url"></button>
+      </ng-template>
+    </owl-carousel-o>
+  </div>
+</div>
+
+<div>
+  <h1>Series déja vu</h1>
+  <div>
+    <owl-carousel-o [options]="customOptions">
+      <ng-template carouselSlide class="carouselSlide" *ngFor="let l of listSeriesVu$ | async">
+        <button ><img class="carouselImage" [src]="l.image.url"></button>
+      </ng-template>
+    </owl-carousel-o>
+  </div>
+</div>
+
+<div>
+  <h1>Films déja vu</h1>
+  <div>
+    <owl-carousel-o [options]="customOptions">
+      <ng-template carouselSlide class="carouselSlide" *ngFor="let l of listFilmsVu$ | async">
+        <button ><img class="carouselImage" [src]="l.image.url"></button>
+      </ng-template>
+    </owl-carousel-o>
+  </div>
+</div>
+<app-footer></app-footer>

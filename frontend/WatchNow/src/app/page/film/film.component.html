@@ -8,39 +8,54 @@
 </head>
 
 <body>
+  <app-nav-bar></app-nav-bar>
 
 
-<div class="container" id="affichageFilm">
-  <div *ngIf="film$ | async as f">
-    <h1>{{f.titre}}</h1>
+<div class="container" id="affichageFilm" *ngIf="film$ | async as f">
 
+  <div >
+    <h1 class="text-center display-3" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: white">{{f.titre}}</h1>
+     <div>
+     <p style="color: white;">Note des utilisateurs : {{f.ratings.rating}}/10</p>
+     <p style="color: white;">Nombre de votes : {{f.ratings.ratingCount}}</p>
+    </div>
     <img src="{{f.image.url}}" id="PosterFilm">
   </div>
 
-  <!-- <div *ngIf="film$ | async as f" id="box">
-    <h2>date de sortie : {{f.releaseDate}}</h2>
-    <h3>Résumé</h3>
-    <p>{{f.plotSummary.text}}</p>
+   <div id="box">
+    <h2 style="color: white;">Date de sortie : {{f.releaseDate}}</h2>
+  </div>
+  <div class="container">
+    <p style="  display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    color: aliceblue;">{{f.plotSummary.text}}</p>
+  </div>
 
-  </div> -->
+  <div *ngIf="oeuvreWatch$ | async as t">
+    <h2 style="color: aliceblue;">How to watch ?</h2>
+
+    <div *ngFor="let x of t.optionGroups">
+      <p class="text-center display-3" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: aliceblue; font-size: 20px; font-style: italic;">{{x.displayName}}</p>
+
+      <div *ngFor="let y of x.watchOptions">
+        <p class="text-center display-3" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 15px;">Plateforme : {{y.primaryText}}</p>
+        <button type="button" class="btn btn-primary"> <a href="{{y.link.uri}}" style="color: black;"> Lien vers la plateforme </a>  </button>
+      </div>
+
+    </div>
+  </div>
+<br>
+  <div>
+    <button type="button" class="btn btn-primary" routerLink="/film/{{f.id}}/synopsis/">Détails / Trailer</button>
+  </div>
+
 </div>
 
-
-
-<div class="container" *ngIf="film$ | async as f">
-  <button routerLink="/film/{{f.id}}/synopsis/{{f.id}}">Voir le synopsis complet</button>
-</div>
-
-
-  <!-- <div *ngIf="film$ | async as f">
-    <p>{{f.synopsis.text}}</p>
-  </div> -->
-
-  <!-- <div *ngIf="film$ | async as f">
-    <h3>Regardez le trailer sur Youtube</h3>
-    <a href="{{f.trailer.trailerUrl}}">Youtube</a>
-  </div> -->
 </body>
 
 </html>
 <router-outlet></router-outlet>
+
+<!--  -->

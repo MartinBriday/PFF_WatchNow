@@ -1,5 +1,8 @@
 <app-nav-bar></app-nav-bar>
-<h1>Action movies</h1>
+<div class="divLogoImg">
+<img class="logoImgFilm" src="https://raw.githubusercontent.com/MartinBriday/PFF_WatchNow/main/docs/FilmLogo2.png" alt="">
+</div>
+<h1>Films d'action</h1>
 <div>
   <owl-carousel-o [options]="customOptions">
     <ng-template carouselSlide class="carouselSlide" *ngFor="let l of listMostPopularFilmByGenreAction$ | async">
@@ -8,7 +11,7 @@
   </owl-carousel-o>
 </div>
 
-<h1>Horror movies</h1>
+<h1>Films d'horreur</h1>
 <div>
   <owl-carousel-o [options]="customOptions">
     <ng-template carouselSlide class="carouselSlide" *ngFor="let l of listMostPopularFilmByGenreHorror$ | async">
@@ -17,7 +20,7 @@
   </owl-carousel-o>
 </div>
 
-<h1>Crime movies</h1>
+<h1>Films de crimes</h1>
 <div>
   <owl-carousel-o [options]="customOptions">
     <ng-template carouselSlide class="carouselSlide" *ngFor="let l of listMostPopularFilmByGenreCrime$ | async">
@@ -26,7 +29,7 @@
   </owl-carousel-o>
 </div>
 
-<h1>Animation movies</h1>
+<h1>Films d'animation</h1>
 <div>
   <owl-carousel-o [options]="customOptions">
     <ng-template carouselSlide class="carouselSlide" *ngFor="let l of listMostPopularFilmByGenreAnimation$ | async">
@@ -35,3 +38,4 @@
   </owl-carousel-o>
 </div>
 
+<app-footer></app-footer>

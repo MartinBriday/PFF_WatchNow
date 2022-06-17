@@ -1,0 +1,17 @@
+<div class="container">
+  <div>
+    <h1>Login</h1>
+  </div>
+  <div>
+    <div class="mb-3">
+      <input type="text" class="form-control" id="username" [(ngModel)]="username" name="username" [ngModelOptions]="{standalone: true}" placeholder="Username" required>
+    </div>
+    <div class="mb-3">
+      <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password" [ngModelOptions]="{standalone: true}" placeholder="Password" required>
+    </div>
+    <p *ngIf="error">
+        {{ error }}
+    </p>
+    <button class="btn btn-primary" (click)="checkLogin()">Login</button>
+  </div>
+</div>
