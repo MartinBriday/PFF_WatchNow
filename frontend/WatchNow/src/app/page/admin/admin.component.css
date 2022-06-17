@@ -1,0 +1,17 @@
+.icone {
+    width: 20px;
+    height: 20px;
+    filter: invert(100%);
+}
+
+.menuGauche {
+    margin: 10px;
+}
+
+.menuGaucheText {
+    
+    margin-left: 20px;
+    font-size: larger;
+    vertical-align: middle;
+    color: white;
+}

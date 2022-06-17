@@ -35,6 +35,8 @@ import { FooterComponent } from './composant/footer/footer.component';
 import { ListeComingSoonSerieComponent } from './composant/liste-coming-soon-serie/liste-coming-soon-serie.component';
 import { ResultatRechercheComponent } from './page/resultat-recherche/resultat-recherche.component';
 import { SafePipe } from './safe.pipe';
+import { AdminComponent } from './page/admin/admin.component';
+import { ResultatRechercheAvanceeComponent } from './page/resultat-recherche-avancee/resultat-recherche-avancee.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +68,9 @@ import { SafePipe } from './safe.pipe';
     FooterComponent,
     ListeComingSoonSerieComponent,
     ResultatRechercheComponent,
-    SafePipe
+    SafePipe,
+    AdminComponent,
+    ResultatRechercheAvanceeComponent
 
   ],
 

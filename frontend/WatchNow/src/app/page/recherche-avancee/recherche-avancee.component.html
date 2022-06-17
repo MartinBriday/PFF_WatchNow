@@ -18,19 +18,19 @@
     <h4 class="card-title" style="margin-top: 3%; text-decoration: lightslategray; text-align: center;">RECHERCHE AVANCEE</h4>
     <form>
       <div class="form-check">
-        <input class="typeOeuvreR" type="checkbox" value="movie">Film
-        <input class="typeOeuvreR" type="checkbox" value="tvSeries">Série
+        <input class="typeOeuvreR" type="radio" name="type" [(ngModel)]="type" value="film">Film
+        <input class="typeOeuvreR" type="radio" name="type" [(ngModel)]="type" value="serie">Série
       </div>
       <div class="mb-3 row">
         <label class="col-sm-2 col-form-label">Titre</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" name="titre" [(ngModel)]="titre">
         </div>
       </div>
       <div class="mb-3 row">
         <label class="col-sm-2 col-form-label">Réalisateur</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" disabled>
         </div>
       </div>
       <div class="mb-3 row">
@@ -42,7 +42,7 @@
       <div class="mb-3 row">
         <label class="col-sm-2 col-form-label">Catégorie</label>
         <div class="col-sm-10">
-          <select class="form-select" aria-label="Default select example">
+          <select class="form-select" aria-label="Default select example" disabled>
             <option selected>Sélectionnez une catégorie</option>
             <option value="action">Action</option>
             <option value="horror">Horreur</option>
@@ -62,15 +62,15 @@
         </div>
       </div>
       <div class="mb-3 row">
-        <label class="col-sm-2 col-form-label">Date de sortie</label>
-        <div class="col-sm-10">
-          <input type="date" class="form-control">
+        <label class="col-sm-2 col-form-label">Année de sortie</label>
+        <div class="col-sm-10" >
+          <input type="number" min="1700" max="2099" step="1" class="form-control" placeholder="AAAA" name="annee" [(ngModel)]="annee">
         </div>
       </div>
       <div class="mb-3 row">
-        <label class="col-sm-2 col-form-label">Langue (audio)</label>
+        <label class="col-sm-2 col-form-label" >Langue (audio)</label>
         <div class="col-sm-10">
-          <select class="form-select" aria-label="Default select example">
+          <select class="form-select" aria-label="Default select example" disabled>
             <option selected>Sélectionnez une langue</option>
             <option value="allemand">Allemand</option>
             <option value="anglais">Anglais</option>
@@ -88,7 +88,7 @@
       <div class="mb-3 row">
         <label class="col-sm-2 col-form-label">Langue (sous-titre)</label>
         <div class="col-sm-10">
-          <select class="form-select" aria-label="Default select example">
+          <select class="form-select" aria-label="Default select example" disabled>
             <option selected>Sélectionnez une langue</option>
             <option value="allemand">Allemand</option>
             <option value="anglais">Anglais</option>
@@ -104,7 +104,7 @@
         </div>
       </div>
 
-      <button type="submit" class="btn btn-primary btn-block mb-4 boutonRecherche">Rechercher</button>
+      <button type="submit" class="btn btn-primary btn-block mb-4 boutonRecherche" (click)="onSubmitRechercheAv()">Rechercher</button>
       <button type="reset" class="btn btn-light btn-block mb-4 boutonRecherche">Annuler</button>
 
 

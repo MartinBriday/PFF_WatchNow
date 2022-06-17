@@ -12,6 +12,8 @@ import { ResultatRechercheComponent } from './page/resultat-recherche/resultat-r
 import { RechercheAvanceeComponent } from './page/recherche-avancee/recherche-avancee.component';
 import { SerieComponent } from './page/serie/serie.component';
 import { EpisodeComponent } from './composant/episode/episode.component';
+import { AdminComponent } from './page/admin/admin.component';
+import { ResultatRechercheAvanceeComponent } from './page/resultat-recherche-avancee/resultat-recherche-avancee.component';
 
 const routes: Routes = [
   {path:"accueil", component: AccueilComponent},
@@ -23,9 +25,9 @@ const routes: Routes = [
   {path:"film/:id", component: FilmComponent, children:[{path: "synopsis", component: SynopsisComponent}]},
   {path:"serie/:id", component: SerieComponent, children:[{path: "synopsis", component: SynopsisComponent}]},
   {path:"serie/episode/:id", component: EpisodeComponent, children:[{path: "synopsis", component: SynopsisComponent}]},
+  {path:"resultatRechercheAvancee/type/:type/titre/:titre/annee/:annee", component: ResultatRechercheAvanceeComponent},
 
-
-
+  {path:"admin", component: AdminComponent},
   {path:"mon_compte", component: MonCompteComponent},
   {path : "**", component: Erreur404Component}
 ];
