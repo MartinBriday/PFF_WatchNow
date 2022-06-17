@@ -1,1 +1,41 @@
-<p>categorie-serie works!</p>
+<app-nav-bar></app-nav-bar>
+<div class="divLogoImg">
+<img class="logoImgSerie" src="https://raw.githubusercontent.com/MartinBriday/PFF_WatchNow/main/docs/SeriesLogo.png" alt="">
+</div>
+<h1>Séries d'action</h1>
+<div>
+  <owl-carousel-o [options]="customOptions">
+    <ng-template carouselSlide class="carouselSlide" *ngFor="let l of listMostPopularSerieByGenreAction$ | async">
+      <button ><img class="carouselImage" [src]="l.image.url"></button>
+    </ng-template>
+  </owl-carousel-o>
+</div>
+
+<h1>Séries d'horreur</h1>
+<div>
+  <owl-carousel-o [options]="customOptions">
+    <ng-template carouselSlide class="carouselSlide" *ngFor="let l of listMostPopularSerieByGenreHorror$ | async">
+      <button ><img class="carouselImage" [src]="l.image.url"></button>
+    </ng-template>
+  </owl-carousel-o>
+</div>
+
+<h1>Séries de crimes</h1>
+<div>
+  <owl-carousel-o [options]="customOptions">
+    <ng-template carouselSlide class="carouselSlide" *ngFor="let l of listMostPopularSerieByGenreCrime$ | async">
+      <button ><img class="carouselImage" [src]="l.image.url"></button>
+    </ng-template>
+  </owl-carousel-o>
+</div>
+
+<h1>Séries d'Animation</h1>
+<div>
+  <owl-carousel-o [options]="customOptions">
+    <ng-template carouselSlide class="carouselSlide" *ngFor="let l of listMostPopularSerieByGenreAnimation$ | async">
+      <button ><img class="carouselImage" [src]="l.image.url"></button>
+    </ng-template>
+  </owl-carousel-o>
+</div>
+
+<app-footer></app-footer>
