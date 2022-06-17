@@ -1,6 +1,6 @@
 import { OeuvreWatchOption } from "./oeuvre-watch-option.model"
 
 export class OeuvreGroupOption {
-  diplayName!:string
+  displayName!:string
   watchOptions!:OeuvreWatchOption[]
 }

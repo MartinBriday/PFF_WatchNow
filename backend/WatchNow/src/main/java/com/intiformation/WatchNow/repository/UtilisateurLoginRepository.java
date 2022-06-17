@@ -13,6 +13,6 @@ import org.springframework.stereotype.Repository;
 @Transactional
 public interface UtilisateurLoginRepository extends JpaRepository<UtilisateurLogin, Integer>
 {
-	@Query(value = "select ul.* from utilisateurlogin as ul, utilisateur as l where l._utilisateurLogin = ul._id and (ul._login=:login or u._email=:login)", nativeQuery = true)
+	@Query(value = "select ul.* from utilisateur_login as ul, utilisateur as u where u._id_utilisateur_login = ul._id and (ul._login=:login or u._email=:login)", nativeQuery = true)
 	UtilisateurLogin findByLoginOrEmail(@Param("login") String login);
 }

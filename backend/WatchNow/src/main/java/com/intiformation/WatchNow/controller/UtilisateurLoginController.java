@@ -10,6 +10,7 @@ import com.intiformation.WatchNow.service.UtilisateurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,10 +39,12 @@ public class UtilisateurLoginController
 		return new ResponseEntity<UtilisateurLogin>(utilisateurLoginService.get(id), HttpStatus.OK);
 	}
 	
-	@PostMapping("/save")
-	public ResponseEntity<UtilisateurLogin> saveUtilisateurLogin(@RequestBody UtilisateurLogin utilisateurLogin) {
-		return new ResponseEntity<UtilisateurLogin>(utilisateurLoginService.save(utilisateurLogin), HttpStatus.CREATED);
-	}
+//	@PostMapping("/save")
+//	public ResponseEntity<UtilisateurLogin> saveUtilisateurLogin(@RequestBody UtilisateurLogin utilisateurLogin) {
+//		BCryptPasswordEncoder bcp = new BCryptPasswordEncoder();
+//		utilisateurLogin.set_password(bcp.encode(utilisateurLogin.get_password()));
+//		return new ResponseEntity<UtilisateurLogin>(utilisateurLoginService.save(utilisateurLogin), HttpStatus.CREATED);
+//	}
 	
 	@DeleteMapping("/delete/{id}")
 	public String deleteUtilisateurLogin(@PathVariable int id) {

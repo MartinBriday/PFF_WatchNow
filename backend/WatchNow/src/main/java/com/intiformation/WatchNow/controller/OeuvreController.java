@@ -82,4 +82,31 @@ public class OeuvreController {
 		}
 		return new ResponseEntity<List<Oeuvre>>(oeuvreService.getComingSoonByType(type), HttpStatus.OK);
 	}
+	
+	@GetMapping("/oeuvre/titre/{titre}/type/{type}")
+	public ResponseEntity<List<Oeuvre>> getOeuvreByTitreAndType(@PathVariable String titre, @PathVariable String type, 
+			@RequestParam(name = "nbResults", required = false) Integer nbResults) {
+		if (nbResults != null && nbResults > 0) {
+			return new ResponseEntity<List<Oeuvre>>(oeuvreService.getByTitreAndType(titre, type, nbResults), HttpStatus.OK);
+		}
+		return new ResponseEntity<List<Oeuvre>>(oeuvreService.getByTitreAndType(titre, type), HttpStatus.OK);
+	}
+	
+	@GetMapping("/oeuvre/titre/{titre}/annee/{annee}")
+	public ResponseEntity<List<Oeuvre>> getOeuvreByTitreAndAnnee(@PathVariable String titre, @PathVariable int annee, 
+			@RequestParam(name = "nbResults", required = false) Integer nbResults) {
+		if (nbResults != null && nbResults > 0) {
+			return new ResponseEntity<List<Oeuvre>>(oeuvreService.getByTitreAndAnnee(titre, annee, nbResults), HttpStatus.OK);
+		}
+		return new ResponseEntity<List<Oeuvre>>(oeuvreService.getByTitreAndAnnee(titre, annee), HttpStatus.OK);
+	}
+	
+	@GetMapping("/oeuvre/titre/{titre}/type/{type}/annee/{annee}")
+	public ResponseEntity<List<Oeuvre>> getOeuvreByTitreAndTypeAndAnnee(@PathVariable String titre, @PathVariable String type, @PathVariable int annee, 
+			@RequestParam(name = "nbResults", required = false) Integer nbResults) {
+		if (nbResults != null && nbResults > 0) {
+			return new ResponseEntity<List<Oeuvre>>(oeuvreService.getByTitreAndTypeAndAnnee(titre, type, annee, nbResults), HttpStatus.OK);
+		}
+		return new ResponseEntity<List<Oeuvre>>(oeuvreService.getByTitreAndTypeAndAnnee(titre, type, annee), HttpStatus.OK);
+	}
 }
