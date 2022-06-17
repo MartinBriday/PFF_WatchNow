@@ -1,3 +1,4 @@
+import { BasicAuthHtppInterceptorService } from './service/basic-auth-interceptor.service';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -27,7 +28,7 @@ import { RechercheAvanceeComponent } from './page/recherche-avancee/recherche-av
 import { SerieComponent } from './page/serie/serie.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ListMostPopularFilmComponent } from './composant/list-most-popular-film/list-most-popular-film.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ListMostPopularSerieComponent } from './composant/list-most-popular-serie/list-most-popular-serie.component';
 import { SynopsisComponent } from './composant/synopsis/synopsis.component';
 import { ListeComingSoonFilmComponent } from './composant/liste-coming-soon-film/liste-coming-soon-film.component';
@@ -35,6 +36,8 @@ import { FooterComponent } from './composant/footer/footer.component';
 import { ListeComingSoonSerieComponent } from './composant/liste-coming-soon-serie/liste-coming-soon-serie.component';
 import { ResultatRechercheComponent } from './page/resultat-recherche/resultat-recherche.component';
 import { SafePipe } from './safe.pipe';
+import { LoginComponent } from './page/login/login.component';
+import { LogoutComponent } from './page/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +69,9 @@ import { SafePipe } from './safe.pipe';
     FooterComponent,
     ListeComingSoonSerieComponent,
     ResultatRechercheComponent,
-    SafePipe
+    SafePipe,
+    LoginComponent,
+    LogoutComponent
 
   ],
 
@@ -80,7 +85,11 @@ import { SafePipe } from './safe.pipe';
     HttpClientModule,
 
   ],
-  providers: [],
+  providers: [
+    {
+      provide:HTTP_INTERCEPTORS, useClass:BasicAuthHtppInterceptorService, multi:true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
