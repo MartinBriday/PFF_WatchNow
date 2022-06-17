@@ -3,6 +3,7 @@ package com.intiformation.WatchNow.model;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -20,6 +21,7 @@ import lombok.NoArgsConstructor;
 @PrimaryKeyJoinColumn(name = "_idPersonne")
 @AllArgsConstructor @NoArgsConstructor
 public class Utilisateur extends Personne {
+	@Column(unique = true)
     private String _email;
     
     @OneToMany(mappedBy = "_utilisateur")

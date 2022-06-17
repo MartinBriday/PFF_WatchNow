@@ -1,5 +1,6 @@
 package com.intiformation.WatchNow.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,7 +22,9 @@ public class UtilisateurLogin{
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
 	private int _id;
+    @Column(unique = true)
 	private String _login;
     private String _password;
+    private String _role;
 
 }
