@@ -1,9 +1,12 @@
+import { AuthGaurdService } from './service/auth-guard.service';
+import { LogoutComponent } from './page/logout/logout.component';
+import { LoginComponent } from './page/login/login.component';
+import { CategorieSerieComponent } from './page/categorie-serie/categorie-serie.component';
 import { FormInscriptionComponent } from './page/form-inscription/form-inscription.component';
 import { MonCompteComponent } from './page/mon-compte/mon-compte.component';
 import { CategorieFilmComponent } from './page/categorie-film/categorie-film.component';
 import { NgModule } from '@angular/core';
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
-import { ListeAleatoireFilmComponent } from './composant/liste-aleatoire-film/liste-aleatoire-film.component';
 import { SynopsisComponent } from './composant/synopsis/synopsis.component';
 import { AccueilComponent } from './page/accueil/accueil.component';
 import { Erreur404Component } from './page/erreur404/erreur404.component';
@@ -18,7 +21,10 @@ import { ResultatRechercheAvanceeComponent } from './page/resultat-recherche-ava
 const routes: Routes = [
   {path:"accueil", component: AccueilComponent},
   {path:"inscription", component: FormInscriptionComponent},
+  {path: 'login', component: LoginComponent },
+  {path: 'logout', component: LogoutComponent, canActivate:[AuthGaurdService] },
   {path:"categorie-film", component: CategorieFilmComponent},
+  {path:"categorie-serie", component: CategorieSerieComponent},
   {path:"recherche/:searchWord", component: ResultatRechercheComponent},
   {path:"rechercheAvancee", component: RechercheAvanceeComponent},
   {path:"film/:id", component: FilmComponent, children:[{path: "synopsis/:id", component: SynopsisComponent}]},
@@ -28,7 +34,7 @@ const routes: Routes = [
   {path:"resultatRechercheAvancee/type/:type/titre/:titre/annee/:annee", component: ResultatRechercheAvanceeComponent},
 
   {path:"admin", component: AdminComponent},
-  {path:"mon_compte", component: MonCompteComponent},
+  {path:"mon_compte", component: MonCompteComponent, canActivate:[AuthGaurdService]},
   {path : "**", component: Erreur404Component}
 ];
 

@@ -12,15 +12,28 @@
     <div *ngIf="trailer$ | async as t">
       <h3>Regardez le trailer sur Youtube</h3>
       <button><a href="{{t.trailerUrl}}">Youtube</a></button>
-      <!-- <iframe width="100%" height="100%"
-      [src]="t.trailerUrl | safe" >
-      </iframe> -->
     </div>
   </div>
+
+  <div class="container" id="filmAffichage">
+
+  </div>
   <div class="container">
-    <div *ngIf="synopsis$ | async as s">
-      <p>{{s.text}}</p>
+    <div class="row">
+      <div class="col"></div>
+      <div class="col-6">
+        <div *ngIf="synopsis$ | async as s">
+          <p style="  display: -webkit-box;
+          overflow: hidden;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          color: aliceblue;">{{s.text}}</p>
+        </div>
+      </div>
+      <div class="col"></div>
+
     </div>
+
   </div>
 
 

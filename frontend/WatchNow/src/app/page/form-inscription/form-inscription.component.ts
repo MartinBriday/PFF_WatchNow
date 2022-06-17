@@ -41,6 +41,7 @@ export class FormInscriptionComponent implements OnInit {
     this.utilisateurLogin = new UtilisateurLogin()
     this.utilisateurLogin._login = this.login
     this.utilisateurLogin._password = this.password
+    this.utilisateurLogin._role = "USER"
     this.utilisateur._utilisateurLogin = this.utilisateurLogin
     this.utilisateur$ = this.utilisateurService.save(this.utilisateur)
     this.utilisateur$.subscribe(data => console.log(data))

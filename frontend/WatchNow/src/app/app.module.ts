@@ -1,3 +1,4 @@
+import { BasicAuthHtppInterceptorService } from './service/basic-auth-interceptor.service';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -27,7 +28,7 @@ import { RechercheAvanceeComponent } from './page/recherche-avancee/recherche-av
 import { SerieComponent } from './page/serie/serie.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ListMostPopularFilmComponent } from './composant/list-most-popular-film/list-most-popular-film.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ListMostPopularSerieComponent } from './composant/list-most-popular-serie/list-most-popular-serie.component';
 import { SynopsisComponent } from './composant/synopsis/synopsis.component';
 import { ListeComingSoonFilmComponent } from './composant/liste-coming-soon-film/liste-coming-soon-film.component';
@@ -37,6 +38,8 @@ import { ResultatRechercheComponent } from './page/resultat-recherche/resultat-r
 import { SafePipe } from './safe.pipe';
 import { AdminComponent } from './page/admin/admin.component';
 import { ResultatRechercheAvanceeComponent } from './page/resultat-recherche-avancee/resultat-recherche-avancee.component';
+import { LoginComponent } from './page/login/login.component';
+import { LogoutComponent } from './page/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +73,9 @@ import { ResultatRechercheAvanceeComponent } from './page/resultat-recherche-ava
     ResultatRechercheComponent,
     SafePipe,
     AdminComponent,
-    ResultatRechercheAvanceeComponent
+    ResultatRechercheAvanceeComponent,
+    LoginComponent,
+    LogoutComponent
 
   ],
 
@@ -84,7 +89,11 @@ import { ResultatRechercheAvanceeComponent } from './page/resultat-recherche-ava
     HttpClientModule,
 
   ],
-  providers: [],
+  providers: [
+    {
+      provide:HTTP_INTERCEPTORS, useClass:BasicAuthHtppInterceptorService, multi:true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
