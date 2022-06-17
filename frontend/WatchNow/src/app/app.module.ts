@@ -36,6 +36,8 @@ import { FooterComponent } from './composant/footer/footer.component';
 import { ListeComingSoonSerieComponent } from './composant/liste-coming-soon-serie/liste-coming-soon-serie.component';
 import { ResultatRechercheComponent } from './page/resultat-recherche/resultat-recherche.component';
 import { SafePipe } from './safe.pipe';
+import { AdminComponent } from './page/admin/admin.component';
+import { ResultatRechercheAvanceeComponent } from './page/resultat-recherche-avancee/resultat-recherche-avancee.component';
 import { LoginComponent } from './page/login/login.component';
 import { LogoutComponent } from './page/logout/logout.component';
 
@@ -70,6 +72,8 @@ import { LogoutComponent } from './page/logout/logout.component';
     ListeComingSoonSerieComponent,
     ResultatRechercheComponent,
     SafePipe,
+    AdminComponent,
+    ResultatRechercheAvanceeComponent,
     LoginComponent,
     LogoutComponent
 
