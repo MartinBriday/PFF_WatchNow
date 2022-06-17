@@ -22,6 +22,8 @@ export class EpisodeComponent implements OnInit {
   synopsis$!: Observable<Synopsis>
   trailer$!: Observable<Trailer>
   oeuvreWatch$!: Observable<OeuvreWatch>
+  reponseOption!: string[]
+
 
 
   constructor(private episodeService: EpisodeService, private synopsisService: SynopsisService, private trailerService: TrailerService, private oeuvreWatchService: OeuvreWatchService,private router: Router, private activatedRoute: ActivatedRoute) {
@@ -34,8 +36,11 @@ export class EpisodeComponent implements OnInit {
     this.synopsis$ = this.synopsisService.getSynopsisByOeuvreId(this.id);
     this.trailer$ = this.trailerService.getTrailerByOeuvreId(this.id);
     this.oeuvreWatch$ = this.oeuvreWatchService.getOeuvreWatchByOeuvreId(this.id);
-
+    this.oeuvreWatch$.subscribe(data1 => console.log(data1))
+    this.reponseOption = Object.keys(this.oeuvreWatch$);
+    console.log(this.reponseOption)
     this.episode$.subscribe(data => console.log(data))
+    //this.reponseOption$.subscribe(data1 => console.log(data1))
      //
   }
 

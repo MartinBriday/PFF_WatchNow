@@ -21,19 +21,25 @@
 <br>
   <div class="container" id="box">
     <div class="row">
-      <div class="col-sm"><h2>{{f.releaseDate}}</h2></div>
+      <div class="col-sm"><h2>Date de sortie : {{f.releaseDate}}</h2></div>
       <div class="col-sm"><button (click)="ngOnSwitchEpisode(f.previousEpisodeId)">Previous episode</button></div>
       <div class="col-sm"><button (click)="ngOnSwitchEpisode(f.nextEpisodeId)">Next episode</button></div>
 
     </div>
 
-    <!-- <div *ngIf="watchOption$ | async as t">
-      <h3>Watch option</h3>
+ <div *ngIf="oeuvreWatch$ | async as t">
+      <h2 style="color: aliceblue;">How to watch ?</h2>
 
       <div *ngFor="let x of t.optionGroups">
-        <div>{{x.diplayName}}</div>
+        <p class="text-center display-3" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: aliceblue; font-size: 20px; font-style: italic;">{{x.displayName}}</p>
+
+        <div *ngFor="let y of x.watchOptions">
+          <p class="text-center display-3" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 15px;">Plateforme : {{y.primaryText}}</p>
+          <button type="button" class="btn btn-primary"> <a href="{{y.link.uri}}" style="color: black;"> Lien vers la plateforme </a>  </button>
+        </div>
+
       </div>
-    </div> -->
+    </div>
 
   </div>
 
