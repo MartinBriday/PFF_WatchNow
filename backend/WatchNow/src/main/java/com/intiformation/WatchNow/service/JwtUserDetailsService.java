@@ -23,7 +23,7 @@ public class JwtUserDetailsService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		if ("root".equals(username)) {
-			return new User("root", "$2a$10$ixlPY3AAd4ty1l6E2IsQ9OFZi2ba9ZQE0bP7RFcGIWNhyFrrT3YUi", new ArrayList<>());
+			return new User("root", "$2a$10$ixlPY3AAd4ty1l6E2IsQ9OFZi2ba9ZQE0bP7RFcGIWNhyFrrT3YUi", getListeGrantedAuthority("USER"));
 		}
 		else {
 			UtilisateurLogin ul = utilisateurLoginService.getByLoginOrEmail(username);
@@ -46,6 +46,15 @@ public class JwtUserDetailsService implements UserDetailsService {
 		List<GrantedAuthority> listeGrantedAuthorities = new ArrayList<GrantedAuthority>();
 		
 		listeGrantedAuthorities.add(new SimpleGrantedAuthority(ul.get_role()));
+		
+		return listeGrantedAuthorities;
+	}
+	
+	private List<GrantedAuthority> getListeGrantedAuthority(String role)
+	{
+		List<GrantedAuthority> listeGrantedAuthorities = new ArrayList<GrantedAuthority>();
+		
+		listeGrantedAuthorities.add(new SimpleGrantedAuthority(role));
 		
 		return listeGrantedAuthorities;
 	}
