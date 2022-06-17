@@ -19,6 +19,10 @@ export class UtilisateurService {
     return this.httpClient.get<Utilisateur>(environment.url + "utilisateur/index/" + id)
   }
 
+  getByLogin(login: string | null): Observable<Utilisateur> {
+    return this.httpClient.get<Utilisateur>(environment.url + "utilisateur/index/login/" + login)
+  }
+
   save(utilisateur: Utilisateur): Observable<Utilisateur> {
     return this.httpClient.post<Utilisateur>(environment.url + "utilisateur/save", utilisateur)
   }
