@@ -15,18 +15,29 @@
   <div >
 
     <h1 class="text-center display-3" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: white;">{{s.titre}}</h1>
-
+    <div>
+      <p style="color: white;">Note des utilisateurs : {{s.ratings.rating}}/10</p>
+      <p style="color: white;">Nombre de votes : {{s.ratings.ratingCount}}</p>
+    </div>
     <img src="{{s.image.url}}" id="PosterFilm">
   </div>
 
   <div id="box">
-    <h2>Date de sortie : {{s.releaseDate}}</h2>
+    <h2 style="color: rgb(255, 232, 232);">Date de sortie : {{s.releaseDate}}</h2>
+  </div>
+  <div class="container">
+    <p style="  display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    color: aliceblue;">{{s.plotSummary.text}}</p>
   </div>
 <br>
   <div class="container">
     <div class="row">
       <div class="col"></div>
     <div class="col-6">
+      <p style="color: rgb(255, 232, 232);">Liste des saisons et épisodes</p>
       <table class="table rtable rtable--flip" id="tableau">
 
       <tbody>
@@ -46,18 +57,9 @@
 
 
 <div class="container" *ngIf="serie$ | async as f" id="affichageFilm">
-  <button routerLink="/serie/{{f.id}}/synopsis/">Détails</button>
+  <button type="button" class="btn btn-primary" routerLink="/serie/{{f.id}}/synopsis/">Détails</button>
 </div>
 
-
-  <!-- <div *ngIf="film$ | async as f">
-    <p>{{f.synopsis.text}}</p>
-  </div> -->
-
-  <!-- <div *ngIf="film$ | async as f">
-    <h3>Regardez le trailer sur Youtube</h3>
-    <a href="{{f.trailer.trailerUrl}}">Youtube</a>
-  </div> -->
 </body>
 
 </html>
