@@ -8,6 +8,9 @@ import { FilmService } from 'src/app/service/film.service';
 import { OeuvreWatchService } from 'src/app/service/oeuvre-watch.service';
 import { SynopsisService } from 'src/app/service/synopsis.service';
 import { TrailerService } from 'src/app/service/trailer.service';
+import { Pipe, PipeTransform } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-synopsis',
@@ -20,8 +23,11 @@ export class SynopsisComponent implements OnInit {
   synopsis$!: Observable<Synopsis>
   trailer$!: Observable<Trailer>
   constructor(private filmService: FilmService  ,private synopsisService: SynopsisService, private trailerService: TrailerService, private oeuvreWatchService: OeuvreWatchService, private router: Router, private activatedRoute: ActivatedRoute) {
-    this.id = activatedRoute.snapshot.params['id']
-    console.log(activatedRoute.snapshot.params['id'])
+    this.activatedRoute.parent?.params.subscribe( (c) => {
+      console.log(c['id']);
+      this.id = c['id']
+  });
+
    }
 
 

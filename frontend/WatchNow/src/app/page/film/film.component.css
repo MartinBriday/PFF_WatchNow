@@ -1,7 +1,8 @@
 #PosterFilm
 {
-  height: 640px;
-  width: 360px;
+  height: 50%;
+  width: 50%;
+  border: 10px solid;
 }
 
 #affichageFilm
@@ -9,7 +10,4 @@
   text-align: center;
 }
 
-#box {
-  display: none;
-  transition-duration: 10s;
-}
+

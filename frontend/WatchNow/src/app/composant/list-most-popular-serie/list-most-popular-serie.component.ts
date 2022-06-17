@@ -45,5 +45,9 @@ export class ListMostPopularSerieComponent implements OnInit {
   ngOnInit(): void {
     this.listMostPopularSerie$ = this.serieService.getMostPopularSerie();
   }
+  ngOnDiplay(id:string)
+  {
 
+    this.router.navigateByUrl("/serie/" + id)
+  }
 }

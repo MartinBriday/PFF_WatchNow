@@ -8,6 +8,7 @@ public interface UtilisateurLoginService
 {
 	public List<UtilisateurLogin> get();
     public UtilisateurLogin get(int id);
+    public UtilisateurLogin getByLoginOrEmail(String login);
     public UtilisateurLogin save(UtilisateurLogin ul);
     public void delete(int id);
     public void update(UtilisateurLogin ul);

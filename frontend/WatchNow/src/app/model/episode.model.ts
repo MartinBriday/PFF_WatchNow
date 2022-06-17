@@ -1,7 +1,15 @@
-export class Episode {
-  _id!:number
-  _duree!:number
-  _titre!:string
-  _synopsis!:string
-  _dateSortie!:Date
+import { Oeuvre } from "./oeuvre.model"
+
+export class Episode extends Oeuvre{
+
+  numero!:number
+  numeroSaison!:number
+  serieId!:string
+  nextEpisodeId!:string
+  previousEpisodeId!:string
+
+  constructor(){
+    super()
+  }
+
 }

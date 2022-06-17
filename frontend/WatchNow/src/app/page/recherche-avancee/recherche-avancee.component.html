@@ -1,37 +1,116 @@
 <app-nav-bar></app-nav-bar>
 <br><br><br>
 
-<div class="card border-secondary mb-3" style="width: 80%;">
-    <div class="card-header">
-        <form>
-            <input type="text" [(ngModel)]="searchWord" name="searchWord" placeholder="Rechercher par mots-clés" id="inputRecherche"/>
-            <button class="btn btn-default" type="submit" (click)="searchThis()">
-                <img src="https://cdn-icons.flaticon.com/png/512/5817/premium/5817754.png?token=exp=1654875071~hmac=b61a96024b7bd8334954b0de880e9c5a"
-                    alt="" width="35" height="35" class="d-inline-block align-text-top">
-            </button>
-        </form>
-    </div>
-    <div class="card-body text-secondary" style="margin-left: 1%;">
-    
-      <h4 class="card-title" style="margin-top: 3%;">Recherche avancée</h4>
-      <form>
-        <div class="form-check">
-            <input type="checkbox" value="movie">Film
-            <input type="checkbox" value="tvSeries">Série
-          </div>
-          <div class="mb-3 row">
-            <label class="col-sm-2 col-form-label">Titre</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" >
-            </div>
-          </div>
+<div class="card border-secondary mb-3 cardRecherche">
+  <div class="card-header">
+    <form>
+      <input type="text" [(ngModel)]="searchWord" name="searchWord" placeholder="Rechercher par mots-clés"
+        id="inputRecherche" />
+      <button class="btn btn-default" type="submit" (click)="searchThis()">
+        <img
+          src="https://cdn-icons.flaticon.com/png/512/5817/premium/5817754.png?token=exp=1654875071~hmac=b61a96024b7bd8334954b0de880e9c5a"
+          alt="" width="35" height="35" class="d-inline-block align-text-top">
+      </button>
+    </form>
+  </div>
+  <div class="card-body text-secondary" style="margin-left: 1%;">
 
-        <!-- Submit button -->
-        <button type="submit" class="btn btn-primary btn-block mb-4">Rechercher</button>
+    <h4 class="card-title" style="margin-top: 3%; text-decoration: lightslategray; text-align: center;">RECHERCHE AVANCEE</h4>
+    <form>
+      <div class="form-check">
+        <input class="typeOeuvreR" type="checkbox" value="movie">Film
+        <input class="typeOeuvreR" type="checkbox" value="tvSeries">Série
+      </div>
+      <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Titre</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Réalisateur</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Acteur</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" disabled>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Catégorie</label>
+        <div class="col-sm-10">
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Sélectionnez une catégorie</option>
+            <option value="action">Action</option>
+            <option value="horror">Horreur</option>
+            <option value="crime">Crime</option>
+            <option value="animation">Animation</option>
+            <option value="adventure">Aventure</option>
+            <option value="fantasy">Fantastique</option>
+            <option value="game-show">Jeux tv</option>
+            <option value="history">Historique</option>
+            <option value="music">Musique</option>
+            <option value="biography">Biographie</option>
+            <option value="comedy">Comédie</option>
+            <option value="documentary">Documentaire</option>
+            <option value="drama">Drama</option>
+            <option value="family">Famille</option>
+          </select>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Date de sortie</label>
+        <div class="col-sm-10">
+          <input type="date" class="form-control">
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Langue (audio)</label>
+        <div class="col-sm-10">
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Sélectionnez une langue</option>
+            <option value="allemand">Allemand</option>
+            <option value="anglais">Anglais</option>
+            <option value="arabe">Arabe</option>
+            <option value="chinois">Chinois</option>
+            <option value="correen">Coréen</option>
+            <option value="espagnol">Espagnol</option>
+            <option value="francais">Français</option>
+            <option value="japonais">Japonais</option>
+            <option value="portuguais">Portuguais</option>
+            <option value="russe">Russe</option>
+          </select>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Langue (sous-titre)</label>
+        <div class="col-sm-10">
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Sélectionnez une langue</option>
+            <option value="allemand">Allemand</option>
+            <option value="anglais">Anglais</option>
+            <option value="arabe">Arabe</option>
+            <option value="chinois">Chinois</option>
+            <option value="correen">Coréen</option>
+            <option value="espagnol">Espagnol</option>
+            <option value="francais">Français</option>
+            <option value="japonais">Japonais</option>
+            <option value="portuguais">Portuguais</option>
+            <option value="russe">Russe</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block mb-4 boutonRecherche">Rechercher</button>
+      <button type="reset" class="btn btn-light btn-block mb-4 boutonRecherche">Annuler</button>
+
 
     </form>
-    </div>
-    </div>
+  </div>
+</div>
 
 
 
