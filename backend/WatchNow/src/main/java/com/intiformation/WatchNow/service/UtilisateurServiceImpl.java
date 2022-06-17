@@ -25,7 +25,7 @@ public class UtilisateurServiceImpl implements UtilisateurService
 	public Utilisateur get(int id)
 	{
 		
-		return utilisateurRepository.getReferenceById(id);
+		return utilisateurRepository.findById(id).get();
 	}
 
 	@Override
@@ -46,5 +46,10 @@ public class UtilisateurServiceImpl implements UtilisateurService
 	{
 		utilisateurRepository.save(u);
 		
+	}
+
+	@Override
+	public Utilisateur getByLogin(String login) {
+		return get(utilisateurRepository.findIdByLoginOrEmail(login));
 	}
 }
