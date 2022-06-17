@@ -44,6 +44,20 @@ transform: scale(1.3);
   z-index: 5;
 }
 
+.logoImgFilm {
+  width: 550px;
+  height: 150px;
+  }
+
+  .logoImgSerie {
+    width: 550px;
+    height: 150px;
+    }
+
+  .divLogoImg {
+    text-align: center;
+    }
+
 .owl-carousel .owl-stage {
   display: flex;
 }
