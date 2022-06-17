@@ -14,22 +14,21 @@
 <div class="container" id="affichageFilm" *ngIf="serie$ | async as s">
   <div >
 
-    <h1>{{s.titre}}</h1>
+    <h1 class="text-center display-3" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: white;">{{s.titre}}</h1>
 
     <img src="{{s.image.url}}" id="PosterFilm">
   </div>
 
   <div id="box">
-    <h2>{{s.releaseDate}}</h2>
+    <h2>Date de sortie : {{s.releaseDate}}</h2>
   </div>
+<br>
+  <div class="container">
+    <div class="row">
+      <div class="col"></div>
+    <div class="col-6">
+      <table class="table rtable rtable--flip" id="tableau">
 
-  <div class="container"  id="affichageFilm">
-    <table class="table rtable rtable--flip">
-      <!-- <thead>
-        <tr >
-          <th scope="col" *ngFor="let saison of s.saisons">Saison {{saison.numero}}</th>
-        </tr>
-      </thead> -->
       <tbody>
 
         <tr *ngFor="let saison of s.saisons">
@@ -38,14 +37,16 @@
 
         </tr>
       </tbody>
-    </table>
+    </table></div>
+    <div class="col"></div>
+  </div>
   </div>
 </div>
 
 
 
 <div class="container" *ngIf="serie$ | async as f" id="affichageFilm">
-  <button routerLink="/serie/{{f.id}}/synopsis/">Voir le synopsis complet</button>
+  <button routerLink="/serie/{{f.id}}/synopsis/">Détails</button>
 </div>
 
 
