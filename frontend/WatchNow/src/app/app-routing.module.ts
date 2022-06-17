@@ -1,6 +1,7 @@
 import { AuthGaurdService } from './service/auth-guard.service';
 import { LogoutComponent } from './page/logout/logout.component';
 import { LoginComponent } from './page/login/login.component';
+import { CategorieSerieComponent } from './page/categorie-serie/categorie-serie.component';
 import { FormInscriptionComponent } from './page/form-inscription/form-inscription.component';
 import { MonCompteComponent } from './page/mon-compte/mon-compte.component';
 import { CategorieFilmComponent } from './page/categorie-film/categorie-film.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent },
   {path: 'logout', component: LogoutComponent, canActivate:[AuthGaurdService] },
   {path:"categorie-film", component: CategorieFilmComponent},
+  {path:"categorie-serie", component: CategorieSerieComponent},
   {path:"recherche/:searchWord", component: ResultatRechercheComponent},
   {path:"rechercheAvancee", component: RechercheAvanceeComponent},
   {path:"film/:id", component: FilmComponent, children:[{path: "synopsis/:id", component: SynopsisComponent}]},

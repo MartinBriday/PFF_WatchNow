@@ -34,4 +34,20 @@ export class SerieService {
   getlistSeriesVu():Observable<Serie[]> {
     return this.httpCLient.get<Serie[]>(environment.url + "")
   }
+
+  getMostPopularSerieByGenreAction():Observable<Serie[]> {
+    return this.httpCLient.get<Serie[]>(environment.url + "")
+  }
+
+  getMostPopularSerieByGenreHorror():Observable<Serie[]> {
+    return this.httpCLient.get<Serie[]>(environment.url + "")
+  }
+
+  getMostPopularSerieByGenreCrime():Observable<Serie[]> {
+    return this.httpCLient.get<Serie[]>(environment.url + "")
+  }
+
+  getMostPopularSerieByGenreAnimation():Observable<Serie[]> {
+    return this.httpCLient.get<Serie[]>(environment.url + "")
+  }
 }

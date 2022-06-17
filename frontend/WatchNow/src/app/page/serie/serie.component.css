@@ -8,9 +8,15 @@
 #affichageFilm
 {
   text-align: center;
+
 }
 
+#tableau
+{
+  text-align: center;
+  background-color: aliceblue;
 
+}
 .rtable
 {
   display: inline-block;
