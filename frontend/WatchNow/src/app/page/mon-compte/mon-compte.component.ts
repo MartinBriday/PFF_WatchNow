@@ -1,3 +1,4 @@
+import { UtilisateurService } from './../../service/utilisateur.service';
 import { SerieService } from 'src/app/service/serie.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Film } from 'src/app/model/film.model';
@@ -5,6 +6,7 @@ import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { FilmService } from 'src/app/service/film.service';
 import { Component, OnInit } from '@angular/core';
+import { Utilisateur } from 'src/app/model/utilisateur.model';
 
 @Component({
   selector: 'app-mon-compte',
@@ -39,8 +41,7 @@ export class MonCompteComponent implements OnInit {
     },
     nav: true
   }
-  constructor(private filmService: FilmService, private serieService: SerieService, private router: Router) { }
-
+  utilisateur$!: Observable<Utilisateur>
   listSeriesEnCours$!: Observable<Film[]>;
   listFilmsEnCours$!: Observable<Film[]>;
   listSeriesLater$!: Observable<Film[]>;
@@ -48,7 +49,11 @@ export class MonCompteComponent implements OnInit {
   listSeriesVu$!: Observable<Film[]>;
   listFilmsVu$!: Observable<Film[]>;
 
+  constructor(private utilisateurService: UtilisateurService, private filmService: FilmService, private serieService: SerieService, private router: Router) { }
+
   ngOnInit(): void {
+    this.utilisateur$ = this.utilisateurService.getByLogin(sessionStorage.getItem('username'))
+
     this.listSeriesEnCours$ = this.serieService.getlistSeriesEnCours();
     this.listFilmsEnCours$ = this.filmService.getlistFilmsEnCours();
 
