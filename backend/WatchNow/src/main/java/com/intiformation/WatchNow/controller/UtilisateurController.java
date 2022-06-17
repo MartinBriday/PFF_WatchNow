@@ -35,7 +35,14 @@ public class UtilisateurController
 	
 	@GetMapping("/index/{id}")
 	public ResponseEntity<Utilisateur> getUtilisateur(@PathVariable int id) {
+		System.out.println("Hello world!");
+		System.out.println(utilisateurService.get(id));
 		return new ResponseEntity<Utilisateur>(utilisateurService.get(id), HttpStatus.OK);
+	}
+	
+	@GetMapping("/index/login/{login}")
+	public ResponseEntity<Utilisateur> getUtilisateur(@PathVariable String login) {
+		return new ResponseEntity<Utilisateur>(utilisateurService.getByLogin(login), HttpStatus.OK);
 	}
 	
 	@PostMapping("/save")
