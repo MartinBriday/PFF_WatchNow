@@ -19,4 +19,10 @@ public interface OeuvreService {
 	List<Oeuvre> getByKeyword(String keyword, Integer nbResults);
 	List<Oeuvre> getComingSoonByType(String type);
 	List<Oeuvre> getComingSoonByType(String type, Integer nbResults);
+	List<Oeuvre> getByTitreAndType(String titre, String type);
+	List<Oeuvre> getByTitreAndType(String titre, String type, Integer nbResults);
+	List<Oeuvre> getByTitreAndAnnee(String titre, int annee);
+	List<Oeuvre> getByTitreAndAnnee(String titre, int annee, Integer nbResults);
+	List<Oeuvre> getByTitreAndTypeAndAnnee(String titre, String type, int annee);
+	List<Oeuvre> getByTitreAndTypeAndAnnee(String titre, String type, int annee, Integer nbResults);
 }
