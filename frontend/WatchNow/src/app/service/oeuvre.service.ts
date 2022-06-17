@@ -33,11 +33,11 @@ export class OeuvreService {
     return this.httpCLient.get<Oeuvre[]>(environment.url +"oeuvre/oeuvre/titre/" + titre + "/type/" + type + "?nbResults=8")
   }
 
-  getByTitreAndAnnee(titre:string, annee:number): Observable<Oeuvre[]> {
+  getByTitreAndAnnee(titre:string, annee:string): Observable<Oeuvre[]> {
     return this.httpCLient.get<Oeuvre[]>(environment.url +"oeuvre/oeuvre/titre/" + titre + "/annee/" + annee + "?nbResults=8")
   }
 
-  getByTitreAndTypeAndAnnee(titre:string, type:string, annee:number): Observable<Oeuvre[]> {
+  getByTitreAndTypeAndAnnee(titre:string, type:string, annee:string): Observable<Oeuvre[]> {
     return this.httpCLient.get<Oeuvre[]>(environment.url +"oeuvre/oeuvre/titre/" + titre + "/type/" + type +"/annee/" + annee + "?nbResults=8")
   }
 
