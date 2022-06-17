@@ -12,8 +12,6 @@
 
 
 <div class="container" id="affichageFilm" *ngIf="film$ | async as f">
-  <div >
-    <h1>{{f.titre}}</h1>
 
   <div >
     <h1 class="text-center display-3" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: white">{{f.titre}}</h1>
@@ -50,7 +48,7 @@
   </div>
 <br>
   <div>
-    <button routerLink="/film/{{f.id}}/synopsis/">Voir le synopsis complet</button>
+    <button type="button" class="btn btn-primary" routerLink="/film/{{f.id}}/synopsis/">Détails / Trailer</button>
   </div>
 
 </div>
