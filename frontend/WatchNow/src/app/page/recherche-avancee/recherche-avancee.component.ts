@@ -14,7 +14,7 @@ export class RechercheAvanceeComponent implements OnInit {
   searchWord!: string
   type!: string
   titre!: string
-  annee!:number
+  annee!:string
 
   constructor(private oeuvreService:OeuvreService, private filmService:FilmService, private serieService:SerieService, private router:Router) { }
 

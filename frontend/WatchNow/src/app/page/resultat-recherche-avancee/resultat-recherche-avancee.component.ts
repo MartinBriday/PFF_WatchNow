@@ -17,7 +17,7 @@ export class ResultatRechercheAvanceeComponent implements OnInit {
 
   type!: string;
   titre!: string;
-  annee!:number;
+  annee!:string;
   listeOeuvre$!: Observable<Oeuvre[]>;
 
   customOptions: OwlOptions = {
@@ -56,19 +56,19 @@ export class ResultatRechercheAvanceeComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.type)
     console.log(this.titre)
-    if (this.type != "undefined" && this.titre == "undefined" && this.annee == undefined) {
+    if (this.type != "undefined" && this.titre == "undefined" && this.annee == "undefined") {
       this.listeOeuvre$ = this.oeuvreService.getByMostPopularByType(this.type)
     }
-    if (this.type == "undefined" && this.titre != "undefined" && this.annee == undefined) {
+    if (this.type == "undefined" && this.titre != "undefined" && this.annee == "undefined") {
       this.listeOeuvre$ = this.oeuvreService.getByTitre(this.titre)
     }
-    if (this.type != "undefined" && this.titre != "undefined" && this.annee == undefined) {
+    if (this.type != "undefined" && this.titre != "undefined" && this.annee == "undefined") {
       this.listeOeuvre$ = this.oeuvreService.getByTitreAndtype(this.type, this.titre)
     }
-    if (this.type == "undefined" && this.titre != "undefined" && this.annee != undefined) {
+    if (this.type == "undefined" && this.titre != "undefined" && this.annee != "undefined") {
       this.listeOeuvre$ = this.oeuvreService.getByTitreAndAnnee(this.titre, this.annee)
     }
-    if (this.type != "undefined" && this.titre != "undefined" && this.annee != undefined) {
+    if (this.type != "undefined" && this.titre != "undefined" && this.annee != "undefined") {
       this.listeOeuvre$ = this.oeuvreService.getByTitreAndTypeAndAnnee(this.titre, this.type, this.annee)
     }
   }
